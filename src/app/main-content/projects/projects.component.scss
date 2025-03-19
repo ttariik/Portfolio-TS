@@ -238,7 +238,7 @@
     p {
       position: relative;
       left: 1rem;
-      width: clamp(23.125rem, 100%, 23.125rem); 
+      width: clamp(18.125rem, 100%, 18.125rem); 
     }
 
     .work-item {
@@ -247,7 +247,7 @@
       padding: 2rem;
       width: clamp(21.875rem, 100%, 21.875rem);
       position: relative;
-      left: 1rem;
+      right: 3rem;
     }
 
     .preview-panel {
@@ -266,14 +266,14 @@
     }
 
     .divider {
-      width: 100%;
+      width: 90%;
       max-width: clamp(25.75rem, 100%, 25.75rem); 
       position: relative;
       left: 1.1rem;
       box-sizing: border-box;
     }
     .divider-fix {
-      width: 100%;
+      width: 90%;
       max-width: clamp(25.75rem, 100%, 25.75rem);
       position: relative;
       left: 1.1rem;

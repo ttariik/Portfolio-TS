@@ -39,10 +39,12 @@ $accent-bg: rgba(61, 207, 182, 0.1);
 
       .profile-front {
         z-index: 2;
+        max-width: clamp(16rem, 40vw, 35rem);
       }
 
       .profile-back {
         z-index: 1;
+        max-width: clamp(16rem, 40vw, 35rem);
       }
 
       &:hover {
@@ -71,7 +73,7 @@ $accent-bg: rgba(61, 207, 182, 0.1);
 
       .about-content {
         width: 100%;
-        max-width: clamp(20rem, 40vw, 35rem);
+        max-width: clamp(14rem, 40vw, 35rem);
         padding: clamp(1rem, 2vw, 2rem) !important;
         display: flex;
         flex-direction: column;

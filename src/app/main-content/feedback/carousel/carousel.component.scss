@@ -155,15 +155,17 @@ button {
 
   .feedback-panel {
     padding: 0px;
+   
 
     p {
-      margin: 3rem 3rem 0;
+      margin: 4rem 1rem 0;
 
-      font-size: 14px;
+      font-size: 12px;
     }
 
     .info-container {
-      font-size: 14px;
+      width: unset;
+      font-size: 13px;
       margin: 0 1rem 2rem 0;
       .divider {
         width: 130px;

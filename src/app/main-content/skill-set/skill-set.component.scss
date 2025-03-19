@@ -4,8 +4,7 @@ section {
   color: white;
   width: 100%;
   max-width: clamp(90rem, 90vw, 90rem); 
-  height: 100vh;
-  margin: 0 auto;
+  margin: 5rem auto;
   padding: 0;
   display: flex;
   flex-direction: row; 
@@ -17,7 +16,7 @@ section {
 .skill-set-container {
   display: flex;
   flex-direction: column;
-  width: clamp(18rem, 45vw, 30rem);
+  width: clamp(14rem, 45vw, 30rem);
   min-height: clamp(30rem, 40vw, 35rem);
   height: auto;
   background-color: rgba(61, 207, 182, 0.1);
@@ -370,7 +369,7 @@ h3 {
 }
 
 
-@media (min-width: 320px) and (max-width:1400px) {
+@media (min-width: 320px) and (max-width:1200px) {
   section {
     flex-direction: column;
     gap: clamp(1rem, 2vw, 2rem);
@@ -381,6 +380,12 @@ h3 {
     margin: clamp(1rem, 2vw, 2rem) 0 0 0;
     grid-template-columns: repeat(1, 1fr); 
     margin: 0 0 5rem 0;
+  }
+
+  .technologies {
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 400px;
   }
 }
 

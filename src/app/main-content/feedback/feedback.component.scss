@@ -51,10 +51,23 @@ $accent-color: rgba(61, 207, 182, 1);
     z-index: 0;
   }
 
+
+
+  .feedback-section {
+    display: flex;
+    overflow: hidden;
+    align-items: unset;
+    p{
+      margin: 3rem 1rem 0;
+    }
+  }
+
   .code-heading {
     h2 {
-      width: 300px;
-
+      width: 100%;
+      text-align: center;
+      max-width: 300px;
+      margin: 3rem auto;
       text-align: center;
     }
   }

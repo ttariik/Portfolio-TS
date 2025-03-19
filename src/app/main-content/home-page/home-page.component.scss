@@ -254,11 +254,24 @@ h2 {
   bottom: 1px;
 }
 
+
+@media (min-width: 320px) and (max-width: 500px) {
+
+  .side-left{
+    img{
+      position: relative;
+      right: 3px;
+    }
+  }
+}
+
 @media (min-width: 320px) and (max-width: 900px) {
   .home-container {
     height: 60vh;
     overflow: hidden;
   }
+
+
 
   .side-panel {
     margin: 0 0 30rem 0;

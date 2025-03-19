@@ -1,0 +1,44 @@
+<div class="pp-wrapper">
+  <ng-container *ngIf="currentLanguage === 'de'; else templateEn">
+    <h2>Datenschutzerklärung</h2>
+    <p>Wir freuen uns über Ihr Interesse an unserer Website. Der Schutz Ihrer persönlichen Daten ist uns sehr wichtig. Nachfolgend informieren wir Sie ausführlich über den Umgang mit Ihren Daten.</p>
+    
+    <h3>1. Verantwortlicher</h3>
+    <p>[Name und Kontaktdaten des Verantwortlichen einfügen]</p>
+    
+    <h3>2. Erhebung und Speicherung personenbezogener Daten sowie Art und Zweck von deren Verwendung</h3>
+    <p>Beim Besuch unserer Website werden automatisch bestimmte Informationen über Ihr Endgerät und Ihren Browser erhoben. Diese Daten werden temporär in einem Logfile gespeichert, um den Betrieb der Website zu gewährleisten und statistisch auszuwerten.</p>
+    
+    <h3>3. Weitergabe von Daten</h3>
+    <p>Eine Übermittlung Ihrer persönlichen Daten an Dritte erfolgt nur, wenn dies gesetzlich zulässig ist oder Sie ausdrücklich eingewilligt haben.</p>
+    
+    <h3>4. Betroffenenrechte</h3>
+    <p>Sie haben das Recht, jederzeit Auskunft über die bei uns gespeicherten personenbezogenen Daten zu erhalten sowie deren Berichtigung oder Löschung zu verlangen. Bitte wenden Sie sich dazu an den oben genannten Verantwortlichen.</p>
+    
+    <h3>5. Datensicherheit</h3>
+    <p>Wir setzen technische und organisatorische Maßnahmen ein, um Ihre Daten gegen zufällige oder vorsätzliche Manipulationen, Verlust, Zerstörung oder gegen den Zugriff unberechtigter Personen zu schützen.</p>
+    
+    <button [routerLink]="['/']" class="home-button">Zur Startseite</button>
+  </ng-container>
+  <ng-template #templateEn>
+    <h2>Privacy Policy</h2>
+    <p>We are pleased that you are interested in our website. Protecting your personal data is very important to us. Below you will find detailed information on how we handle your data.</p>
+    
+    <h3>1. Data Controller</h3>
+    <p>[Insert the name and contact details of the data controller]</p>
+    
+    <h3>2. Collection and Storage of Personal Data and the Type and Purpose of its Use</h3>
+    <p>When you visit our website, certain information is automatically transmitted to our server via your browser. This information is temporarily stored in a log file to ensure the proper operation of the website and for statistical evaluation.</p>
+    
+    <h3>3. Data Sharing</h3>
+    <p>Your personal data will only be shared with third parties if this is permitted by law or if you have given your explicit consent.</p>
+    
+    <h3>4. Data Subject Rights</h3>
+    <p>You have the right to obtain information about your personal data stored with us, as well as to request corrections or deletions. Please contact the data controller provided above for further details.</p>
+    
+    <h3>5. Data Security</h3>
+    <p>We employ technical and organizational measures to protect your data against accidental or intentional alterations, loss, destruction, or unauthorized access.</p>
+    
+
+  </ng-template>
+</div>

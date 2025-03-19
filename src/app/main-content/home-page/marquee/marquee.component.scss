@@ -1,0 +1,41 @@
+.banner {
+  box-sizing: border-box;
+  position: relative;      
+  rotate: -3deg;
+  overflow: hidden;
+  height: 62px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(5px);
+  color: rgba(61, 207, 182, 1);
+
+  .scroll-container {
+    display: flex;
+    font-size: 32px;
+    font-weight: 400;
+    white-space: nowrap;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+  }
+
+  .flow-item {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .dot {
+    height: 0.56rem;
+    width: 0.56rem;
+    margin: 3rem; 
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

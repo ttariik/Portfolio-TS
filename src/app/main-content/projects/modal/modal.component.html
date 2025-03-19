@@ -1,0 +1,36 @@
+<div class="modal-overlay" (click)="onResetProject()" *ngIf="currentProject">
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <div class="modal-info">
+      <h1 class="modal-index">{{ currentProject.index }}</h1>
+      <h2 class="modal-title">{{ currentProject.title }}</h2>
+      <h3 class="code-style">{{ "projects.modal.head" | translate }}</h3>
+      <p class="modal-description">{{ currentProject.descriptionKey | translate }}</p>
+      <div class="skills-group">
+        <div class="skill-item" *ngFor="let skill of currentProject.skills">
+          <img [src]="skill.icon" [alt]="skill.alt" />
+          <span class="skill-label">{{ skill.label }}</span>
+        </div>
+      </div>
+      <div class="buttons-group">
+        <a class="action-btn" target="_blank" [href]="currentProject.githubLink">
+          GitHub
+          <div class="btn-decoration"></div>
+        </a>
+        <a class="action-btn" target="_blank" [href]="currentProject.liveTestLink">
+          Live Test
+          <div class="btn-decoration"></div>
+        </a>
+      </div>
+    </div>
+    <div class="modal-media">
+      <div class="close-btn-container">
+        <div class="close-btn" (click)="onResetProject()"></div>
+      </div>
+      <img class="modal-image" [src]="currentProject.image" [alt]="currentProject.title" />
+      <div class="next-btn-wrapper" (click)="nextProject()">
+        <span class="next-btn-text">{{ currentProject.nextButtonTranslationKey | translate }}</span>
+        <div class="next-btn-decoration"></div>
+      </div>
+    </div>
+  </div>
+</div>

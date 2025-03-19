@@ -1,0 +1,108 @@
+{
+	"mainHeader":{
+		"aboutMe":"About me",
+		"projects":"Projects",
+		"skillSet":"Skills"
+	},
+	"landingPage":{
+		"title":"Frontend Developer",
+		"buttons":{
+			"contactMe":"Contact Me",
+			"myProjects":"Check my Work"
+		}
+	},
+	"marquee": {
+		"text":{
+			"job": "Frontend Developer",
+			"location": "Based in Frankfurt am Main",
+			"availability": "Available for remote work",
+			"workStatus": "Open to work"
+		}
+	},
+	"aboutMe": {
+		"heading": {
+		  "primary": "Who I am",
+		  "secondary": "About me"
+		},
+		"introduction": "Hey there, I'm Tarik! My passion for coding stems from my enthusiasm for logical thinking and creative problem-solving. I am particularly fascinated by the intersection of development and security because I want to not only build software but also protect it from attacks.",
+		"texts": {
+			"location":"I'm currently based in Frankfurt am Main but fully open to remote opportunities.",
+			"mindset": "Tech is always evolving, and I adapt with it. Learning new skills and improving every day is what keeps me motivated.",
+			"newProjects": "My problem-solving approach is based on analytical thinking, creativity, and persistence. I break down challenges into manageable parts, explore multiple solutions, and focus on finding the most efficient and elegant one. I also value collaboration, as working with others often leads to better insights and ideas."
+		}
+	  },
+	  "skillSet": {
+		"heading":{
+			"primary":"Technologies",
+			"secondary":"Skill set",
+			"tertiary1.1": "You need",
+			"tertiary1.2": "another skill?"
+		},
+		"text":{
+			"primary":"I thrive in the dynamic world of front-end development, where creativity meets logic. With hands-on experience in Angular, TypeScript, SCSS, and other modern technologies, I build engaging, responsive, and high-performance web applications. But technology never stands still neither do I.",
+			"secondary":"Please feel free to contact me. I look forward to expanding on my previous knowledge.",
+			"tertiary":"Let's talk",
+			"mindset":"Growth Mindset"
+		}
+	},
+	"projects": {
+	"introduction":{
+		"head":"Featured Projects",
+		"text":"Explore a selection of my work here - interact with projects to see my skills in action."
+
+	},
+	"modal":{
+		"head":"What is this project about?",
+		"join":"Join is a Task manager application inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.",
+		"elPolloLoco":"El Pollo Loco a Jump and run game where you can throw salsa bottels and eliminate enemies based on object-oriented approach. Help Pepe to find coins and salsa bottels to fight against the crazy hen endboss.",
+		"btn":"Next project"
+	}
+},
+	"peerEvaluations":{
+	"heading":{
+		"introduction":"What my colleagues say about me"
+	},
+	"feedbacks":{
+		"feedback1": "Working with Tarik has been a great experience. His attention to detail and problem-solving mindset made a significant impact on our project. He is highly reliable, communicates effectively, and always brings innovative ideas to the table. His technical skills and teamwork attitude made collaboration smooth and enjoyable. I truly appreciate his dedication and would be happy to work with him again in the future.",
+		"feedback2": "Tarik is an outstanding programmer with exceptional skills in development and system optimization. His problem-solving mindset, deep technical expertise, and collaborative nature make him a valuable team member. He consistently delivers high-quality results and fosters a positive team dynamic."
+	}
+},
+"contactMe":{
+	"introduction":{
+		"header":"Contact me",
+		"head":"Lets work together"
+	},
+	"texts":{
+		"primary":"Got a problem to solve?",
+		"secondary":"I'm excited to hear from you! If you're looking for someone who brings passion and expertise to your frontend project, let me know. I'm eager to contribute my skills and add real value to your work.",
+		"tertiary1":"Need a Frontend developer?",
+		"tertiary1.2":"Lets talk!"
+	},
+	"form":{
+		"name":"What's your name?",
+		"email":"What's your email?",
+		"help":"How can i help you?",
+		"placeholder":{
+			"name":"Your name goes here",
+			"email":"youremail@mail.com",
+			"help":"Hello Tarik, i am interested in..."
+		},
+		"errorMessages":{
+			"name":"Oops! it seems your name is missing",
+			"email":"Hoppla! your email is required",
+			"help":"What do you need to develop?"
+		},
+		"extra":{
+			"privacy":"I've read the",
+			"policy":"and agree to the processing of my data as outlined."
+		}
+	}
+},
+	"footer":{
+		"title":"Web Developer",
+		"location":"Frankfurt am Main Germany",
+		"imprint":"imprint",
+		
+		"privacyPolicy":"Privacy Policy"
+	}
+}

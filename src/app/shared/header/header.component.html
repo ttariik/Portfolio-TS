@@ -1,0 +1,59 @@
+<div class="header-wrapper" data-aos="fade-down" data-aos-duration="1000" data-aos-easing="ease-in-out">
+  <div class="burger-menu">
+    <button (click)="toggleMenu()" class="burger-toggle" aria-label="Toggle menu">
+      <app-svg-icon iconName="menu-button"></app-svg-icon>
+    </button>
+  </div>
+
+  <div class="left-side-header" data-aos="fade-right" data-aos-duration="1200" data-aos-delay="200">
+    <div class="switch" data-aos="flip-left" data-aos-duration="1000" data-aos-delay="300">
+      <input
+        id="language-toggle"
+        class="check-toggle check-toggle-round-flat"
+        type="checkbox"
+        [checked]="isChecked"
+        (change)="toggleLanguage()"
+      />
+      <label for="language-toggle"></label>
+      <span class="on fira-code" data-aos="fade-in" data-aos-delay="500">EN</span>
+      <span class="off fira-code" data-aos="fade-in" data-aos-delay="600">DE</span>
+    </div>
+
+    <a class="fira-code" href="#aboutSection" data-aos="slide-right" data-aos-duration="800" data-aos-delay="400">
+      {{ 'mainHeader.aboutMe' | translate }}<div></div>
+    </a>
+
+    <a class="fira-code" href="#skill-set" data-aos="slide-right" data-aos-duration="900" data-aos-delay="500">
+      {{ 'mainHeader.skillSet' | translate }}<div></div>
+    </a>
+
+    <a class="fira-code" href="#projectSection" data-aos="slide-right" data-aos-duration="1000" data-aos-delay="600">
+      {{ 'mainHeader.projects' | translate }}<div></div>
+    </a>
+  </div>
+
+  <a href="">
+    <img src="" alt="Logo" data-aos="zoom-in" data-aos-duration="1200" data-aos-delay="800" data-aos-easing="ease-out-back"/>
+  </a>
+</div>
+
+<div class="mobile-menu" [class.active]="isMenuOpen" (click)="onMenuClick($event)">
+  <div class="menu-content">
+    <a class="fira-code" href="#aboutSection">{{ 'mainHeader.aboutMe' | translate }}</a>
+    <a class="fira-code" href="#skill-set">{{ 'mainHeader.skillSet' | translate }}</a>
+    <a class="fira-code" href="#projectSection">{{ 'mainHeader.projects' | translate }}</a>
+    <div class="switch">
+      <input
+        id="language-toggle-mobile"
+        class="check-toggle check-toggle-round-flat"
+        type="checkbox"
+        [checked]="isChecked"
+        (change)="toggleLanguage()"
+      />
+      <label for="language-toggle-mobile"></label>
+      <span class="on fira-code">EN</span>
+      <span class="off fira-code">DE</span>
+    </div>
+  </div>
+</div>
+

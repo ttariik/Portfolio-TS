@@ -1,0 +1,388 @@
+section {
+  height: auto;
+  min-height: clamp(43.75rem, 50vh, 43.75rem);
+  color: white;
+  width: 100%;
+  max-width: clamp(90rem, 90vw, 90rem); 
+  height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: row; 
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.skill-set-container {
+  display: flex;
+  flex-direction: column;
+  width: clamp(18rem, 45vw, 30rem);
+  min-height: clamp(30rem, 40vw, 35rem);
+  height: auto;
+  background-color: rgba(61, 207, 182, 0.1);
+  border: 0.0625rem solid #3dcfb6; 
+  border-radius: clamp(1.25rem, 2vw, 1.875rem); 
+  padding: clamp(2rem, 2vw, 2rem) !important;
+  margin: clamp(2rem, 5vw, 2rem) clamp(5rem, 8vw, 5rem) 0 0;
+  display: flex;
+}
+
+.technologies {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem; 
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: clamp(37.5rem, 43.75vw, 43.75rem);
+  width: 100%;
+  height: 100%;
+  max-height: clamp(31.25rem, 40vw, 31.25rem); 
+  flex-wrap: wrap;
+  gap: clamp(2rem, 5.5vw, 5.5rem);
+  margin: clamp(3rem, 5vw, 3rem) 0 0 0;
+}
+
+h2 {
+  font-size: clamp(3.5rem, 3vw, 3.5rem);
+  font-weight: 800;
+  color: #3dcfb6;
+  font-family: "Fira Code";
+  text-align: left;
+  letter-spacing: -0.25rem;
+  margin: 0 0 clamp(1rem, 1vw, 1.09rem) 0;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 800;
+  color: #3dcfb6;
+  font-family: "Karla";
+  text-align: left;
+  margin: 0 0 clamp(1rem, 1vw, 1rem) 0;
+}
+
+.text {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.5;
+  font-family: "Karla";
+  font-weight: 400;
+  color: #ffffff;
+  text-align: justify;
+  letter-spacing: 0;
+}
+
+.explanation {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.8rem, 1.5vw, 1.2rem);
+
+  div {
+    display: flex;
+    gap: clamp(0.4rem, 1vw, 1.5rem);
+  }
+
+  .anotherSkill-text {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    font-family: "Fira Code";
+    font-weight: 800;
+    line-height: 1.3;
+    margin: 1rem 0 0 0;
+  }
+
+  .green-text {
+    color: #3dcfb6;
+  }
+
+  .anotherSkillsub-text {
+    font-size: clamp(1.3rem, 1.1vw, 1.3rem);
+    font-weight: 400;
+    font-family: "Karla";
+    width: 18.75rem; 
+    line-height: 1.3;
+  }
+}
+
+.btn {
+  gap: clamp(1rem, 3vw, 3rem);
+
+  button {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 1);
+    background: transparent;
+    height: clamp(3.125rem, 3vw, 3.125rem);
+    padding: 1rem 3rem;
+    font-size: clamp(1rem, 1.125vw, 1.5rem);
+    font-weight: 400;
+    color: white;
+    font-family: "Karla";
+    cursor: pointer;
+    border-radius: 50px;
+    overflow: hidden; 
+    transition: border 0.3s ease-in-out, color 0.3s ease-in-out;
+
+    > div {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      white-space: nowrap; 
+      animation: none;
+    }
+
+    &:hover {
+      border-color: rgba(61, 207, 182, 1);
+      color: rgba(61, 207, 182, 1);
+
+      > div {
+        animation: btnHoverStart 2s linear forwards, btnHoverLoop 4s linear 2s infinite;
+      }
+    }
+  }
+}
+
+@keyframes btnHoverStart {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-9.375rem);
+  }
+}
+
+@keyframes btnHoverLoop {
+  0% {
+    transform: translateX(9.375rem);
+  }
+  100% {
+    transform: translateX(-12.5rem);
+  }
+}
+
+.technologies > app-svg-icon {
+  cursor: pointer;
+  position: relative;
+  bottom: clamp(1.75rem, 2vw, 2rem); 
+  padding: clamp(0.625rem, 1vw, 0.625rem); 
+  border-radius: clamp(0.5rem, 1vw, 0.5rem); 
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.technologies > app-svg-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-0.3125rem) scale(1.1); 
+  box-shadow: 0px 0.625rem 0.9375rem rgba(0, 0, 0, 0.3); 
+}
+
+.technologies > app-svg-icon:hover::before {
+  content: attr(tooltip);
+  position: absolute;
+  top: -2.5rem; 
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  padding: clamp(0.625rem, 1vw, 0.9375rem) clamp(0.9375rem, 1.5vw, 0.9375rem); 
+  border-radius: clamp(0.375rem, 1vw, 0.375rem); 
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  font-weight: bold;
+  white-space: nowrap;
+  box-shadow: 0px 0.25rem 0.375rem rgba(0, 0, 0, 0.2); 
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.technologies app-svg-icon[iconName="html-icon"]:hover {
+  background-color: #e34f26;
+}
+
+.technologies app-svg-icon[iconName="css-icon"]:hover {
+  background-color: #1572b6;
+}
+
+.technologies app-svg-icon[iconName="javascript-icon"]:hover {
+  background-color: #f7df1e;
+}
+
+.technologies app-svg-icon[iconName="typescript-icon"]:hover {
+  background-color: #3178c6;
+}
+
+.technologies app-svg-icon[iconName="angular-icon"]:hover {
+  background-color: #dd0031;
+}
+
+.technologies app-svg-icon[iconName="firebase-icon"]:hover {
+  background-color: #ffca28;
+}
+
+.technologies app-svg-icon[iconName="git-icon"]:hover {
+  background-color: #f05032;
+}
+
+.technologies app-svg-icon[iconName="rest-api-icon"]:hover {
+  background-color: #2c3e50;
+}
+
+.technologies app-svg-icon[iconName="scrum-icon"]:hover {
+  background-color: #0fdebc;
+}
+
+.scrum-icon {
+  position: relative;
+  text-align: center;
+
+  app-svg-icon {
+    display: inline-block;
+    padding: clamp(0.9375rem, 1vw, 0.9375rem); 
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 1rem;
+    cursor: pointer;
+    position: relative;
+    left: clamp(2rem, 2vw, 2rem); 
+    bottom: clamp(1.75rem, 2vw, 2rem);
+  }
+
+  app-svg-icon:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-0.3125rem) scale(1.1);
+    box-shadow: 0px 0.625rem 0.9375rem rgba(0, 0, 0, 0.3);
+  }
+
+  app-svg-icon:hover::before {
+    content: attr(tooltip);
+    position: absolute;
+    top: -2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: clamp(0.625rem, 1vw, 0.9375rem) clamp(0.9375rem, 1.5vw, 0.9375rem);
+    border-radius: clamp(0.375rem, 1vw, 0.375rem);
+    font-size: clamp(0.875rem, 1vw, 1rem);
+    font-weight: bold;
+    white-space: nowrap;
+    box-shadow: 0px 0.25rem 0.375rem rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+}
+
+.growth-mindset {
+  cursor: pointer;
+  position: relative;
+  left: 1.25rem; 
+  grid-column: span 4;
+  text-align: center;
+  position: relative;
+}
+
+.growth-mindset app-svg-icon {
+  display: inline-block;
+  padding: clamp(0.9375rem, 1vw, 0.9375rem);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.growth-mindset app-svg-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-0.3125rem) scale(1.1);
+  box-shadow: 0px 0.625rem 0.9375rem rgba(0, 0, 0, 0.3);
+  border-radius: 1rem;
+}
+
+.growth-mindset .tooltip2 {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  position: absolute;
+  top: -6.25rem; 
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  padding: 0.625rem;
+  border-radius: 0.375rem; 
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.625rem; 
+  z-index: 10;
+  border-radius: 1rem;
+}
+
+.growth-mindset:hover .tooltip2,
+.growth-mindset:focus-within .tooltip2 {
+  display: flex;
+  opacity: 1;
+}
+
+.growth-mindset .tooltip2 .tooltip-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.growth-mindset .tooltip2 app-svg-icon {
+  padding: clamp(0.5rem, 1vw, 0.5rem);
+  border-radius: 0.375rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.growth-mindset .tooltip2 app-svg-icon:hover {
+  background-color: #000000;
+  transform: translateY(-0.3125rem) scale(1.1);
+}
+
+.growth-mindset .tooltip2 p {
+  margin-top: 0.3125rem; 
+  font-size: clamp(0.875rem, 1vw, 1rem);
+  color: #333;
+  font-family: "Karla";
+  font-weight: 500;
+  text-align: center;
+  &:hover {
+    color: #0fdebc;
+    transition: color 0.3s ease;
+  }
+}
+
+.growth-mindset .tooltip-name {
+  opacity: 0;
+  color: #0fdebc;
+  font-family: "Karla";
+  font-size: clamp(1rem, 1vw, 1.1rem);
+  transition: opacity 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+  padding: 1rem;
+  transform: translateY(1.25rem); 
+}
+
+.growth-mindset:hover .tooltip-name {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.growth-mindset .tooltip-name:hover {
+  text-shadow: 0 0 0.5rem #0fdebc, 0 0 0.75rem #0fdebc;
+}
+
+
+@media (min-width: 320px) and (max-width:1400px) {
+  section {
+    flex-direction: column;
+    gap: clamp(1rem, 2vw, 2rem);
+    grid-template-columns: repeat(3, 1fr); 
+  
+  }
+  .skill-set-container {
+    margin: clamp(1rem, 2vw, 2rem) 0 0 0;
+    grid-template-columns: repeat(1, 1fr); 
+    margin: 0 0 5rem 0;
+  }
+}
+
+
+

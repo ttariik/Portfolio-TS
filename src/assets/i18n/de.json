@@ -1,0 +1,111 @@
+{
+	"mainHeader":{
+		"aboutMe":"Über mich",
+		"projects":"Projekte",
+		"skillSet":"Fähigkeiten"
+	},
+	"landingPage":{
+		"title":"Frontend Entwickler",
+		"buttons":{
+		
+			"contactMe":"Kontaktieren Sie mich",
+				"myProjects":"Meine Projekte"
+		}
+	},
+	"marquee": {
+		"text":{
+			"job": "Frontend Entwickler",
+			"location": "Ansässig in Frankfurt am Main",
+			"availability": "Verfügbar für Remote Arbeit",
+			"workStatus": "Offen für Jobangebote"
+		}
+	},
+	"aboutMe": {
+		"heading": {
+		  "primary": "Wer ich bin",
+		  "secondary": "Über mich"
+		},
+		"introduction": "Hallo, ich bin Tarik! Meine Leidenschaft für das Programmieren entspringt meinem Interesse an logischem Denken und kreativem Problemlösen. Besonders fasziniert mich die Schnittstelle zwischen Entwicklung und Sicherheit, da ich nicht nur Software erstellen, sondern sie auch vor Angriffen schützen möchte.",
+		"texts": {
+			"location":"Ich lebe derzeit in Frankfurt am Main, bin jedoch offen für Remote-Arbeitsmöglichkeiten.",
+			"mindset": "Technologien entwickelen sich ständig weiter und ich mit ihr. Neue Fähigkeiten zu erlernen und mich täglich zu verbessern, ist meine größte Motivation.",
+			"newProjects": "Mein Ansatz zur Problemlösung basiert auf analytischem Denken, Kreativität und Ausdauer. Ich zerlege Herausforderungen in handhabbare Teile, erkunde verschiedene Lösungswege und konzentriere mich darauf, die effizienteste und eleganteste Lösung zu finden. Zudem schätze ich die Zusammenarbeit, da der Austausch mit anderen oft zu besseren Einsichten und innovativen Ideen führt."
+		}
+	  },
+	  "skillSet": {
+		"heading":{
+			"primary":"Technologien",
+			"secondary":"Mein Tech Stack",
+			"tertiary1.1": "Benötigen Sie",
+			"tertiary1.2": "weitere Fähigkeiten?"
+		},
+		"text":{
+			"primary":"Ich blühe in der dynamischen Welt der Front-End-Entwicklung auf, wo Kreativität auf Logik trifft. Mit praktischer Erfahrung in Angular, TypeScript, SCSS und weiteren modernen Technologien erstelle ich ansprechende, responsive und leistungsstarke Webanwendungen. Doch die Technologie steht nie still – und ich auch nicht.",
+			"secondary":"Zögern Sie nicht, mich zu kontaktieren. Ich freue mich darauf, mein bisheriges Wissen weiter auszubauen.",
+			"tertiary":"Lassen Sie uns sprechen",
+			"mindset":"Wachstumsdenken"
+		}
+	},
+	"peerEvaluations":{
+		"heading":{
+			"introduction":"Was meine Kollegen über mich sagen"
+		},
+		"feedbacks":{
+			"feedback1": "Die Zusammenarbeit mit Tarik war eine herausragende Erfahrung. Sein ausgeprägtes Auge fürs Detail und seine lösungsorientierte Denkweise haben unser Projekt maßgeblich beeinflusst. Er ist äußerst zuverlässig, kommuniziert effektiv und bringt stets innovative Ideen ein. Dank seiner technischen Fähigkeiten und seiner kooperativen Haltung verlief die Zusammenarbeit reibungslos und angenehm. Ich schätze sein Engagement sehr und würde mich freuen, in Zukunft wieder mit ihm zusammenzuarbeiten.",
+			"feedback2": "Tarik ist ein herausragender Programmierer mit außergewöhnlichen Fähigkeiten in der Entwicklung und Systemoptimierung. Seine lösungsorientierte Denkweise, fundierte technische Expertise und teamorientierte Art machen ihn zu einem wertvollen Teammitglied. Er liefert stets qualitativ hochwertige Ergebnisse und fördert eine positive Teamdynamik."
+		}
+	},
+	"projects": {
+		"introduction":{
+			"head":"Ausgewählte Projekte",
+			"text":"Erkunden Sie eine Auswahl meiner Projekte und erleben Sie meine Fähigkeiten direkt in Aktion."
+	
+		},
+		"modal":{
+			"head":"Worum geht es in diesem Projekt?",
+			"join":"Join ist eine Task-Manager-Anwendung, inspiriert vom Kanban-System. Erstellen Sie Aufgaben, organisieren Sie sie per Drag-and-Drop und weisen Sie Benutzer sowie Kategorien zu.",
+			"elPolloLoco":"El Pollo Loco ist ein Jump-'n'-Run-Spiel, in dem Sie Salsa-Flaschen werfen und Gegner eliminieren können basierend auf einem objektorientierten Ansatz. Helfen Sie Pepe, Münzen und Salsa Flaschen zu sammeln, um gegen den verrückten Huhn Endboss zu kämpfen.",
+			"btn":"Nächstes projekt"
+		}
+	},
+"contactMe":{
+	"introduction":{
+		"header":"Kontaktieren Sie mich",
+		"head":"Lassen Sie uns zusammenarbeiten"
+	},
+	"texts":{
+		"primary":"Haben Sie ein Problem, das gelöst werden muss",
+		"secondary":"Ich freue mich darauf, von Ihnen zu hören! Wenn Sie jemanden suchen, der mit Leidenschaft und Expertise an Ihrem Frontend-Projekt arbeitet, lassen Sie es mich wissen. Ich bin bereit, meine Fähigkeiten einzubringen und echten Mehrwert für Ihre Arbeit zu schaffen.",
+		"tertiary1":"Benötigen Sie einen Frontend Entwickler?",
+		"tertiary1.2":"Lassen Sie uns sprechen!"
+	},
+	"form":{
+		"name":"Wie lautet Ihr Name",
+		"email":"Wie lautet Ihre E-Mail-Adresse",
+		"help":"Wie kann ich Ihnen helfen?",
+		"placeholder":{
+			"name":"Hier kommt Ihr Name hin.",
+			"email":"ihreemail@mail.com",
+			"help":"Hallo Tarik, ich bin interessiert an..."
+		},
+		"errorMessages":{
+			"name":"Uups, es scheint, dass Ihr Name fehlt.",
+			"email":"Hoppla! Ihre E-Mail-Adresse wird benötigt.",
+			"help":"Was müssen Sie entwickeln?"
+		},
+		"extra":{
+			"privacy":"Ich habe die",
+			"policy":"und stimme der Verarbeitung meiner Daten wie beschrieben zu."
+		}
+	}
+},
+	"footer":{
+		"title":"Web Entwickler",
+		"location":"Frankfurt am Main Deutschland",
+		"imprint":"Impressum",
+		"privacyPolicy":"Datenschutzerklärung"
+	}
+}
+
+
+

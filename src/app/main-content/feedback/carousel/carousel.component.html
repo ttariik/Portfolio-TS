@@ -1,0 +1,31 @@
+<div class="feedback-slider">
+  <div
+    class="feedback-panel"
+    *ngFor="let entry of getVisibleFeedback(); let idx = index"
+    [ngClass]="{ center: idx === 1, left: idx === 0, right: idx === 2 }"
+  >
+    <img
+      class="quote-mark"
+      src="/assets/img/quotes.svg"
+      alt="quotation marks"
+    />
+    <p>{{ entry.comment }}</p>
+    <div class="info-container">
+      <div class="divider"></div>
+      <span>{{ entry.name }} - {{ entry.role }}</span>
+    </div>
+  </div>
+</div>
+
+<div class="control-wrapper">
+  <div class="control-left" (click)="previous()"></div>
+  <div class="dot-container">
+    <div
+      *ngFor="let item of feedbackList; let idx = index"
+      class="dot"
+      [class.active]="idx === currentIndex"
+      (click)="goToIndex(idx)"
+    ></div>
+  </div>
+  <div class="control-right" (click)="next()"></div>
+</div>

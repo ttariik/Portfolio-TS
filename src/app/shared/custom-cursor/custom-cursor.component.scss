@@ -1,0 +1,16 @@
+$cursor-color: rgb(0, 255, 200);
+$background-color: rgba(28, 28, 28, 0.5);
+
+.custom-cursor {
+  opacity: 0.2;
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background-image: radial-gradient($cursor-color 10%, $background-color 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s linear;
+  z-index: 9999;
+  filter: blur(10px);
+}

@@ -1,0 +1,56 @@
+<div class="work-section" id="projectSection">
+  <div class="modal-overlay d-none" [class.visible]="clickedProject">
+    <div>
+      <app-modal
+        [project]="clickedProject"
+        (resetProjectEvent)="resetProjectId()"
+      ></app-modal>
+    </div>
+  </div>
+
+  <h3 class="section-heading" data-aos="fade-up">Portfolio</h3>
+  <h2 class="code-font" data-aos="fade-up">{{ 'projects.introduction.head' | translate }}</h2>
+  <p data-aos="fade-up">{{ 'projects.introduction.text' | translate }}</p>
+
+  <div class="divider"></div>
+
+  <div class="work-grid">
+    <div class="overview-list">
+      <div
+        *ngFor="let project of projects"
+        class="work-item"
+        (mouseover)="hoveredProject = project.id"
+        (mouseout)="hoveredProject = 0"
+        (click)="selectProject(project.id)"
+      >
+        <div class="item-header">
+          <span class="item-title code-font">{{ project.title }}</span>
+          <div class="image-placeholder"></div>
+        </div>
+
+        <span class="item-skills">
+          <ng-container *ngFor="let skill of project.skills; let isLast = last">
+            <span class="skill-label">{{ skill }}</span>
+            <span *ngIf="!isLast"> | </span>
+          </ng-container>
+        </span>
+      </div>
+      <div class="divider"></div>
+      <div class="divider-fix"></div>
+    </div>
+
+    <div class="preview-panel">
+      <div
+        *ngFor="let project of projects"
+        [class]="
+          project.previewClass +
+          ' preview-box ' +
+          (hoveredProject === project.id ? 'visible' : 'd-none')
+        "
+      >
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>

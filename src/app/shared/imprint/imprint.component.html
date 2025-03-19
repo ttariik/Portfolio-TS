@@ -1,0 +1,125 @@
+<div class="imprint-container">
+  <ng-container *ngIf="currentLanguage === 'de'; else templateEn">
+    <div class="imprint-content">
+      <h1>Impressum</h1>
+
+      <p><strong>Angaben gemäß § 5 TMG:</strong></p>
+      <address>
+        Tarik Sabanovic<br />
+        [Straße und Hausnummer]<br />
+        [PLZ, Stadt]<br />
+        Deutschland
+      </address>
+
+      <p><strong>Rechtsform:</strong> Einzelunternehmen</p>
+
+      <p>
+        <strong>Vertreten durch:</strong><br />
+        Tarik Sabanovic
+      </p>
+
+      <p>
+        <strong>Kontakt:</strong><br />
+        Telefon: [Telefonnummer]<br />
+        E-Mail:
+        <a href="mailto:tarik.sabanovic@example.com"
+          >tarik.sabanovic&copy;example.com</a
+        >
+      </p>
+
+      <h2>Haftungsausschluss</h2>
+      <h3>Inhalte</h3>
+      <p>
+        Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte dieses
+        Portfolios wird keine Gewähr übernommen. Trotz sorgfältiger Erstellung
+        können Fehler auftreten.
+      </p>
+
+      <h3>Externe Links</h3>
+      <p>
+        Dieses Portfolio enthält Links zu Webseiten Dritter, auf deren Inhalte
+        ich keinen Einfluss habe. Bei Bekanntwerden von Rechtsverstößen werden
+        betroffene Links umgehend entfernt.
+      </p>
+
+      <h3>Urheberrecht</h3>
+      <p>
+        Sämtliche von mir erstellten Inhalte unterliegen dem deutschen
+        Urheberrecht. Die Vervielfältigung, Bearbeitung oder Verbreitung bedarf
+        der schriftlichen Zustimmung.
+      </p>
+
+      <h3>Datenschutz</h3>
+      <p>
+        Der Schutz persönlicher Daten ist mir wichtig. Personenbezogene Daten
+        werden nur im notwendigen Umfang und unter Einhaltung der geltenden
+        Datenschutzgesetze erhoben und verarbeitet.
+      </p>
+
+      <h3>Google Analytics</h3>
+      <p>
+        Dieses Portfolio nutzt Google Analytics zur anonymisierten Analyse des
+        Nutzerverhaltens.
+      </p>
+
+      <button [routerLink]="['/']" class="home-button">Zur Startseite</button>
+    </div>
+  </ng-container>
+
+  <ng-template #templateEn>
+    <div class="imprint-content">
+      <h1>Imprint</h1>
+
+      <p><strong>Information according to § 5 TMG:</strong></p>
+      <address>
+        Tarik Sabanovic<br />
+        [Street and number]<br />
+        [Postal code, City]<br />
+        Germany
+      </address>
+
+      <p><strong>Legal Form:</strong> Sole Proprietorship</p>
+
+      <p>
+        <strong>Represented by:</strong><br />
+        Tarik Sabanovic
+      </p>
+
+      <p>
+        <strong>Contact:</strong><br />
+        Phone: [Phone number]<br />
+        Email:
+        <a href="mailto:tarik.sabanovic@example.com"
+          >tarik.sabanovic&copy;example.com</a
+        >
+      </p>
+
+      <h2>Disclaimer</h2>
+      <h3>Content Liability</h3>
+      <p>
+        While every effort has been made to ensure accuracy, completeness, and
+        timeliness, no guarantee is given.
+      </p>
+
+      <h3>External Links</h3>
+      <p>
+        This portfolio contains links to third-party websites over which I have
+        no influence. Legal violations will result in immediate removal.
+      </p>
+
+      <h3>Copyright</h3>
+      <p>All content created by me is subject to German copyright law.</p>
+
+      <h3>Data Protection</h3>
+      <p>
+        Protecting your personal data is important. Personal information is
+        collected and processed only as necessary.
+      </p>
+
+      <h3>Google Analytics</h3>
+      <p>This portfolio uses Google Analytics for anonymized analysis.</p>
+
+      <button [routerLink]="['/']" class="home-button">Back to Home</button>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,32 @@
+.pp-wrapper {
+  padding-top: 100px;
+  padding-left: 96px;
+  padding-right: 96px;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(
+    to bottom left,
+    rgba(8, 70, 59, 1),
+    rgba(28, 28, 28, 1) 60%
+  );
+  color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #ff4c4c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.home-button:hover {
+  background-color: #d43f3f;
+}

@@ -1,0 +1,41 @@
+<div class="footer" data-aos="fade-in">
+  <div class="footer__container">
+    
+    <div class="footer__section footer__section--left" 
+         data-aos="fade-right" data-aos-delay="200">
+      <a [href]="footerInfo.logoLink">
+        <div class="footer__logo" data-aos="zoom-in" data-aos-delay="400"></div>
+      </a>
+      <div class="footer__info" data-aos="fade-up" data-aos-delay="600">
+        <span class="footer__title">{{ footerInfo.title | translate }}</span>
+        <a href="https://maps.app.goo.gl/58XEsDJ63HHtVyVx8" target="_blank">
+          <span class="footer__location">
+            {{ footerInfo.location | translate }}
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer__section footer__section--center footer__copy">
+      &copy; Tarik Sabanovic {{ currentYear }}
+    </div>
+
+    <div class="footer__section footer__section--right" 
+         data-aos="fade-left" data-aos-delay="1000">
+      <div *ngFor="let link of footerLinks; let i = index" 
+           data-aos="flip-up" 
+           [attr.data-aos-delay]="1200 + (i * 200)">
+        <a [href]="link.url" [attr.target]="link.target">
+          <div class="footer__icon" 
+               data-aos="zoom-in" 
+               [attr.data-aos-delay]="1400 + (i * 200)">
+          </div>
+          <span>
+            {{ link.translate ? (link.label | translate) : link.label }}
+          </span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

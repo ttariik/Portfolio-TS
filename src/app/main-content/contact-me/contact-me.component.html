@@ -1,0 +1,138 @@
+<div
+  class="contact-container"
+  id="contact-section"
+  data-aos="fade-up"
+  data-aos-duration="1000"
+>
+  <div class="contact-details" data-aos="fade-right" data-aos-delay="200">
+    <span data-aos="fade-down" data-aos-delay="300">
+      {{ "contactMe.introduction.header" | translate }}
+    </span>
+    <h2 class="fira-code" data-aos="zoom-in" data-aos-delay="400">
+      {{ "contactMe.introduction.head" | translate }}
+    </h2>
+    <span class="fira-code" data-aos="fade-left" data-aos-delay="500">
+      {{ "contactMe.texts.primary" | translate }}
+    </span>
+    <p data-aos="fade-up" data-aos-delay="600">
+      {{ "contactMe.texts.secondary" | translate }}<br /><br />
+    </p>
+    <p data-aos="fade-up" data-aos-delay="700">
+      <span class="tertiary1">{{
+        "contactMe.texts.tertiary1" | translate
+      }}</span>
+      <a href="mailto:tarik.sabanovic2@icloud.com" class="tertiary2">{{
+        "contactMe.texts.tertiary1.2" | translate
+      }}</a>
+    </p>
+  </div>
+
+  <div class="contact-form-container" data-aos="fade-left" data-aos-delay="800">
+    <div class="separator"></div>
+    <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+      <div class="form-field" data-aos="flip-up" data-aos-delay="900">
+        <label class="fira-code form-label" for="contactName">
+          {{ "contactMe.form.name" | translate }}
+        </label>
+        <input
+          #name="ngModel"
+          type="text"
+          id="contactName"
+          name="name"
+          minlength="2"
+          required
+          [(ngModel)]="contactData.name"
+          [placeholder]="getNamePlaceholder(name)"
+        />
+      </div>
+      <div class="separator"></div>
+      <div class="form-field" data-aos="flip-up" data-aos-delay="1000">
+        <label class="fira-code form-label" for="contactEmail">
+          {{ "contactMe.form.email" | translate }}
+        </label>
+        <input
+          #email="ngModel"
+          type="email"
+          id="contactEmail"
+          name="email"
+          required
+          [(ngModel)]="contactData.email"
+          [placeholder]="getMailPlaceholder(email)"
+          pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
+        />
+      </div>
+      <div class="separator"></div>
+      <div class="form-field" data-aos="flip-up" data-aos-delay="1100">
+        <label class="fira-code form-label" for="contactMessage">
+          {{ "contactMe.form.help" | translate }}
+        </label>
+        <input
+          #message="ngModel"
+          type="text"
+          id="contactMessage"
+          name="message"
+          minlength="5"
+          required
+          [(ngModel)]="contactData.message"
+          [placeholder]="getMessagePlaceholder(message)"
+        />
+      </div>
+      <div class="separator"></div>
+      <div
+        class="form-field--privacy checkbox-wrapper-43"
+        data-aos="fade-in"
+        data-aos-delay="1200"
+      >
+        <input
+          #privacyPolicy="ngModel"
+          type="checkbox"
+          id="contactPrivacyPolicy"
+          name="privacyPolicy"
+          required
+          [(ngModel)]="contactData.privacyPolicy"
+        />
+
+        <label for="contactPrivacyPolicy" class="check">
+          <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path
+              d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"
+            ></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+          </svg>
+        </label>
+
+        <label for="contactPrivacyPolicy">
+          {{ "contactMe.form.extra.privacy" | translate }}
+          <a class="fira-code policy-link" href="privacyPolicy"
+            >privacy policy</a
+          >
+          {{ "contactMe.form.extra.policy" | translate }}
+        </label>
+      </div>
+
+      <div
+        *ngIf="
+          contactForm.submitted &&
+          name.valid &&
+          email.valid &&
+          message.valid &&
+          !contactData.privacyPolicy
+        "
+        class="error-message"
+        data-aos="shake"
+        data-aos-delay="1300"
+      >
+        <span>Please accept the privacy policy</span>
+      </div>
+
+      <input
+        class="submit-button"
+        type="submit"
+        value="Say Hello :)"
+        [disabled]="!contactForm.valid || !contactData.privacyPolicy"
+        data-aos="zoom-out"
+        data-aos-delay="1400"
+      />
+    </form>
+  </div>
+</div>

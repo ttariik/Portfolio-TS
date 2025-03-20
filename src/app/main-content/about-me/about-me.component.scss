@@ -124,6 +124,15 @@ $accent-bg: rgba(61, 207, 182, 0.1);
   }
 }
 
+
+@media (min-width: 700px) and (max-width: 1400px) {
+  .about-image-wrapper {
+    margin: 10rem 0 5rem 0;
+    position: relative;
+    left: 2rem;
+  }
+}
+
 @media (min-width: 320px) and (max-width: 600px) {
   .about-image-wrapper {
     margin: 10rem 0 5rem 0;

@@ -67,6 +67,9 @@
 		"feedback2": "Tarik is an outstanding programmer with exceptional skills in development and system optimization. His problem-solving mindset, deep technical expertise, and collaborative nature make him a valuable team member. He consistently delivers high-quality results and fosters a positive team dynamic."
 	}
 },
+
+
+
 "contactMe":{
 	"introduction":{
 		"header":"Contact me",
@@ -90,11 +93,15 @@
 		"errorMessages":{
 			"name":"Oops! it seems your name is missing",
 			"email":"Hoppla! your email is required",
-			"help":"What do you need to develop?"
+			"help":"What do you need to develop?",
+			"nameInvalid":"special characters are not permitted",
+			"emailInvalid":"only “@” and “.” allowed",
+			"messageInvalid":"special characters are not permitted"
 		},
 		"extra":{
 			"privacy":"I've read the",
-			"policy":"and agree to the processing of my data as outlined."
+			"policy":"and agree to the processing of my data as outlined.",
+			"acceptMessage":"Please accept the the privacy policy."
 		}
 	}
 },

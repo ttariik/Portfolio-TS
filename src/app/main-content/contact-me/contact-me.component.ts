@@ -23,6 +23,12 @@ export class ContactMeComponent implements OnInit, OnDestroy {
     privacyPolicy: false,
   };
 
+  validationErrors = {
+    name: '',
+    email: '',
+    message: ''
+  };
+
   placeholders = {
     name: '',
     email: '',
@@ -30,7 +36,8 @@ export class ContactMeComponent implements OnInit, OnDestroy {
   };
 
   mailTest = false;
-
+  submitAttempted = false;
+  
   post = {
     endPoint: 'https://.dev/api/sendMail.php',
     body: (payload: any) => JSON.stringify(payload),
@@ -41,6 +48,8 @@ export class ContactMeComponent implements OnInit, OnDestroy {
       },
     },
   };
+
+
 
   constructor(private translate: TranslateService) {}
 
@@ -69,46 +78,123 @@ export class ContactMeComponent implements OnInit, OnDestroy {
       });
   }
 
+  validateName(name: string): boolean {
+    const nameRegex = /^[a-zA-ZäöüÄÖÜß\s]+$/;
+    const isValid = nameRegex.test(name);
+    
+    if (!isValid && name) {
+      this.validationErrors.name = this.translate.instant('contactMe.form.errorMessages.nameInvalid') || 
+        'Bitte nur Buchstaben eingeben (keine Zahlen oder Sonderzeichen)';
+    } else {
+      this.validationErrors.name = '';
+    }
+    
+    return isValid;
+  }
+
+  validateEmail(email: string): boolean {
+    const emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+    const isValid = emailRegex.test(email);
+    
+    if (!isValid && email) {
+      this.validationErrors.email = this.translate.instant('contactMe.form.errorMessages.emailInvalid') || 
+        'Bitte eine gültige E-Mail-Adresse eingeben';
+    } else {
+      this.validationErrors.email = '';
+    }
+    
+    return isValid;
+  }
+
+  validateMessage(message: string): boolean {
+    const messageRegex = /^[a-zA-Z0-9äöüÄÖÜß\s]+$/;
+    const isValid = messageRegex.test(message);
+    
+    if (!isValid && message) {
+      this.validationErrors.message = this.translate.instant('contactMe.form.errorMessages.messageInvalid') || 
+        'Bitte nur Buchstaben und Zahlen eingeben (keine Sonderzeichen)';
+    } else {
+      this.validationErrors.message = '';
+    }
+    
+    return isValid;
+  }
+
   getNamePlaceholder(name: NgModel): string {
-    return !name.valid && name.touched
-      ? this.translate.instant('contactMe.form.errorMessages.name')
-      : this.placeholders.name;
+    if (!name.valid && name.touched) {
+      if (this.validationErrors.name) {
+        return this.validationErrors.name;
+      }
+      return this.translate.instant('contactMe.form.errorMessages.name');
+    }
+    return this.placeholders.name;
   }
 
   getMailPlaceholder(email: NgModel): string {
-    return !email.valid && email.touched
-      ? this.translate.instant('contactMe.form.errorMessages.email')
-      : this.placeholders.email;
+    if (!email.valid && email.touched) {
+      if (this.validationErrors.email) {
+        return this.validationErrors.email;
+      }
+      return this.translate.instant('contactMe.form.errorMessages.email');
+    }
+    return this.placeholders.email;
   }
 
   getMessagePlaceholder(message: NgModel): string {
-    return !message.valid && message.touched
-      ? this.translate.instant('contactMe.form.errorMessages.help')
-      : this.placeholders.message;
+    if (!message.valid && message.touched) {
+      if (this.validationErrors.message) {
+        return this.validationErrors.message;
+      }
+      return this.translate.instant('contactMe.form.errorMessages.help');
+    }
+    return this.placeholders.message;
   }
 
-onSubmit(ngForm: NgForm): void {
-  if (ngForm.valid) {
-    if (!this.contactData.privacyPolicy) {
-      console.error('Bitte akzeptieren Sie die Datenschutzbestimmungen.');
+  onSubmit(ngForm: NgForm): void {
+    const isNameValid = this.validateName(this.contactData.name);
+    const isEmailValid = this.validateEmail(this.contactData.email);
+    const isMessageValid = this.validateMessage(this.contactData.message);
+
+    if (!isNameValid || !isEmailValid || !isMessageValid) {
       return;
     }
+    
+    if (ngForm.valid) {
+      if (!this.contactData.privacyPolicy) {
+        console.error('Bitte akzeptieren Sie die Datenschutzbestimmungen.');
+        return;
+      }
 
-    this.http
-      .post(
-        this.post.endPoint,
-        this.post.body(this.contactData),
-        this.post.options
-      )
-      .subscribe({
-        next: (response) => {
-          console.table(response);
-          ngForm.resetForm();
-        },
-        error: (error) => console.error('Fehler beim Senden:', error),
-        complete: () => console.info('Mailversand abgeschlossen'),
-      });
+      this.http
+        .post(
+          this.post.endPoint,
+          this.post.body(this.contactData),
+          this.post.options
+        )
+        .subscribe({
+          next: (response) => {
+            console.table(response);
+            ngForm.resetForm();
+            this.validationErrors = {
+              name: '',
+              email: '',
+              message: ''
+            };
+          },
+          error: (error) => console.error('Fehler beim Senden:', error),
+          complete: () => console.info('Mailversand abgeschlossen'),
+        });
+    }
+  }
+
+  
+
+checkPrivacyPolicy(): void {
+  if (!this.contactData.privacyPolicy) {
+    this.submitAttempted = true;
+    event?.preventDefault();
+  } else {
+    this.submitAttempted = false;
   }
 }
-
 }

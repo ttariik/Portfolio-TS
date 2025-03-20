@@ -43,10 +43,16 @@
           required
           [(ngModel)]="contactData.name"
           [placeholder]="getNamePlaceholder(name)"
+          (input)="validateName(contactData.name)"
         />
+        <div
+          *ngIf="validationErrors.name && name.touched"
+          class="error-message"
+        >
+          {{ validationErrors.name }}
+        </div>
       </div>
       <div class="separator"></div>
-
 
       <div class="form-field" data-aos="flip-up" data-aos-delay="1000">
         <label class="fira-code form-label" for="contactEmail">
@@ -60,10 +66,18 @@
           required
           [(ngModel)]="contactData.email"
           [placeholder]="getMailPlaceholder(email)"
+          (input)="validateEmail(contactData.email)"
           pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
         />
+        <div
+          *ngIf="validationErrors.email && email.touched"
+          class="error-message"
+        >
+          {{ validationErrors.email }}
+        </div>
       </div>
       <div class="separator"></div>
+
       <div class="form-field" data-aos="flip-up" data-aos-delay="1100">
         <label class="fira-code form-label" for="contactMessage">
           {{ "contactMe.form.help" | translate }}
@@ -77,11 +91,16 @@
           required
           [(ngModel)]="contactData.message"
           [placeholder]="getMessagePlaceholder(message)"
+          (input)="validateMessage(contactData.message)"
         />
+        <div
+          *ngIf="validationErrors.message && message.touched"
+          class="error-message"
+        >
+          {{ validationErrors.message }}
+        </div>
       </div>
 
-
-      
       <div class="separator"></div>
       <div
         class="form-field--privacy checkbox-wrapper-43"
@@ -115,29 +134,21 @@
         </label>
       </div>
 
-      <div
-        *ngIf="
-          contactForm.submitted &&
-          name.valid &&
-          email.valid &&
-          message.valid &&
-          !contactData.privacyPolicy
-        "
-        class="error-message"
-        data-aos="shake"
-        data-aos-delay="1300"
-      >
-        <span>Please accept the privacy policy</span>
+
+
+      <div class="submit-button-container" data-aos="zoom-out" data-aos-delay="1400">
+        <input
+          class="submit-button"
+          [ngClass]="{'disabled-button': !contactData.privacyPolicy}"
+          type="submit"
+          value="Say Hello :)"
+          [disabled]="!contactForm.valid || !contactData.privacyPolicy || 
+                    validationErrors.name || validationErrors.email || validationErrors.message"
+          (click)="checkPrivacyPolicy()"
+        />
+        <span class="tooltip" *ngIf="!contactData.privacyPolicy">  {{ "contactMe.form.extra.acceptMessage" | translate }}</span>
       </div>
 
-      <input
-        class="submit-button"
-        type="submit"
-        value="Say Hello :)"
-        [disabled]="!contactForm.valid || !contactData.privacyPolicy"
-        data-aos="zoom-out"
-        data-aos-delay="1400"
-      />
     </form>
   </div>
 </div>

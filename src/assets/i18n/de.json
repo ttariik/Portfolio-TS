@@ -91,11 +91,14 @@
 		"errorMessages":{
 			"name":"Uups, es scheint, dass Ihr Name fehlt.",
 			"email":"Hoppla! Ihre E-Mail-Adresse wird benötigt.",
-			"help":"Was müssen Sie entwickeln?"
+			"help":"Was müssen Sie entwickeln?",
+			"nameInvalid":"Sonderzeichen sind nicht erlaubt",
+			"emailInvalid":"nur “@” und “.” erlaubt"
 		},
 		"extra":{
 			"privacy":"Ich habe die",
-			"policy":"und stimme der Verarbeitung meiner Daten wie beschrieben zu."
+			"policy":"und stimme der Verarbeitung meiner Daten wie beschrieben zu.",
+			"acceptMessage":"Bitte akzeptieren Sie die Datenschutzbestimmungen."
 		}
 	}
 },

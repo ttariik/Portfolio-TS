@@ -8,6 +8,8 @@ $footer-height: clamp(7rem, 10vw, 8rem);
 
 .footer {
   width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   background-color: $footer-bg;
   color: $footer-color;
 
@@ -174,6 +176,8 @@ $footer-height: clamp(7rem, 10vw, 8rem);
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: flex-start;
+      position: relative;
+      left: 2rem;
     }
   
     .footer__section--left,
@@ -201,7 +205,6 @@ $footer-height: clamp(7rem, 10vw, 8rem);
     .footer__section--left,
     .footer__section--right {
       flex: 1 1 50%;
-      max-width: 50%;
     }
   }
   

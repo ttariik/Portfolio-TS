@@ -18,7 +18,10 @@
   );
 
   img {
-    height: clamp(2.5rem, 5vw, 3.125rem);
+    // height: clamp(2.5rem, 5vw, 3.125rem);
+    height: 80px;
+    width: 220px;
+    border-radius: 20px;
   }
 }
 

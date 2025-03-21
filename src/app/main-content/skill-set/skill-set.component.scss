@@ -384,11 +384,11 @@ h3 {
   .skill-set-container {
     margin: clamp(1rem, 2vw, 2rem) 0 0 0;
     grid-template-columns: repeat(1, 1fr); 
-    margin: 0 0 5rem 0;
+    margin: 0 5rem 5rem 0;
   }
 
   .technologies {
-    margin: 1rem auto;
+    margin: 3rem 6rem 3rem 0;
     width: 100%;
     max-width: 400px;
   }

@@ -39,7 +39,7 @@ export class ModalComponent implements OnChanges {
         { icon: '/assets/img/icons_overlay/firebase.svg', alt: 'official Firebase Icon', label: 'Firebase' }
       ],
       githubLink: 'https://github.com/ttariik/Join',
-      liveTestLink: '',
+      liveTestLink: 'https://tarik-sabanovic.developerakademie.net/projects/join-374',
       image: './../../../../assets/img/join.svg',
       nextButtonTranslationKey: 'projects.modal.btn'
     },
@@ -54,7 +54,7 @@ export class ModalComponent implements OnChanges {
         { icon: '/assets/img/icons_overlay/css.svg', alt: '', label: 'CSS' }
       ],
       githubLink: 'https://github.com/ttariik/El-Pollo-Loco',
-      liveTestLink: '',
+      liveTestLink: 'https://tarik-sabanovic.developerakademie.net/projects/El-Pollo-Loco/',
       image: './../../../../assets/img/elPolloLoco.svg',
       nextButtonTranslationKey: 'projects.modal.btn'
     }

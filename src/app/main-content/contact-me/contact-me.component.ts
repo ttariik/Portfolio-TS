@@ -187,14 +187,12 @@ export class ContactMeComponent implements OnInit, OnDestroy {
     }
   }
 
-  
-
-checkPrivacyPolicy(): void {
-  if (!this.contactData.privacyPolicy) {
-    this.submitAttempted = true;
-    event?.preventDefault();
-  } else {
-    this.submitAttempted = false;
+  checkPrivacyPolicy(): void {
+    if (!this.contactData.privacyPolicy) {
+     this.submitAttempted = true;
+      event?.preventDefault();
+    } else {
+     this.submitAttempted = false;
+    }
   }
-}
 }

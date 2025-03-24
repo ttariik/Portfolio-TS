@@ -28,7 +28,7 @@ $color-error: rgba(236, 123, 123, 1);
   padding: clamp(3rem, 5vw, 9rem) clamp(1.5rem, 4vw, 6rem);
   padding-bottom: clamp(1rem, 2vw, 2rem) !important;
   background-color: $color-bg;
-  gap: clamp(1.5rem, 3vw, 4rem);
+  gap: clamp(1.5rem, 6vw, 7rem);
   width: 100%;
   max-width: 1250px;
   margin: 0 auto;
@@ -50,6 +50,7 @@ $color-error: rgba(236, 123, 123, 1);
     flex-direction: column;
     justify-content: flex-start;
     margin: 0 clamp(1rem, 3vw, 4rem) 0 0;
+    margin-left: 1rem;
 
     @include responsive(mobile) {
       max-width: 100%;
@@ -228,7 +229,7 @@ form {
 .form-field {
   display: flex;
   flex-direction: column;
-  padding: clamp(1rem, 1.5vw, 2rem);
+  padding: clamp(1rem, 2vw, 2.5rem);
   gap: clamp(0.5rem, 0.8vw, 1rem);
 }
 
@@ -378,7 +379,7 @@ input.ng-invalid.ng-touched::placeholder {
 }
 
 .separator {
-  width: clamp(50px, 80%, 880px);
+  width: clamp(50px, 95%, 880px);
   max-width: 880px;
   position: relative;
   height: 1px;
@@ -398,7 +399,7 @@ input.ng-invalid.ng-touched::placeholder {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 13rem 0;
   box-sizing: border-box;
 }
 

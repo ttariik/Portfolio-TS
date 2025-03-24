@@ -1,5 +1,4 @@
 .modal-overlay {
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -225,7 +224,6 @@
   background-position: right;
 }
 
-/* Media Queries for specific breakpoints */
 @media (max-width: 992px) {
   .modal-container {
     flex-direction: column;

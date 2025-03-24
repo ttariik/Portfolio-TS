@@ -3,68 +3,111 @@ $color-primary: rgba(61, 207, 182, 1);
 $color-white: rgba(255, 255, 255, 1);
 $color-error: rgba(236, 123, 123, 1);
 
+@mixin responsive($size) {
+  @if $size == mobile {
+    @media (min-width: 320px) and (max-width: 767px) {
+      @content;
+    }
+  } @else if $size == tablet {
+    @media (min-width: 768px) and (max-width: 1023px) {
+      @content;
+    }
+  } @else if $size == desktop-small {
+    @media (min-width: 1024px) and (max-width: 1399px) {
+      @content;
+    }
+  } @else if $size == desktop {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  }
+}
+
 .contact-container {
   display: flex;
-  padding: 9rem 6rem;
-  padding-bottom: 2rem !important;
+  padding: clamp(3rem, 5vw, 9rem) clamp(1.5rem, 4vw, 6rem);
+  padding-bottom: clamp(1rem, 2vw, 2rem) !important;
   background-color: $color-bg;
-  gap: 4rem;
+  gap: clamp(1.5rem, 3vw, 4rem);
   width: 100%;
   max-width: 1250px;
   margin: 0 auto;
 
+  @include responsive(mobile) {
+    flex-direction: column;
+    padding: 3rem 1.5rem 1rem;
+  }
+
+  @include responsive(tablet) {
+    flex-direction: column;
+    padding: 5rem 3rem 1.5rem;
+  }
+
   > .contact-details {
-    width: 35.5rem;
+    width: 100%;
+    max-width: 35.5rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin: 0 4rem 0 0;
+    margin: 0 clamp(1rem, 3vw, 4rem) 0 0;
+
+    @include responsive(mobile) {
+      max-width: 100%;
+      margin: 0 0 2rem 0;
+    }
+
+    @include responsive(tablet) {
+      max-width: 100%;
+      margin: 0 0 3rem 0;
+    }
 
     > span:nth-child(1) {
       margin-top: 0;
-      margin-bottom: 1.25rem;
-      font-size: clamp(1.5rem, 1.5rem, 1.5rem);
-      line-height: 1.75rem;
+      margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+      font-size: clamp(1rem, 2.25vw, 1.5rem);
+      line-height: clamp(1.25rem, 1.5vw, 1.75rem);
       font-weight: 500;
       color: $color-primary;
     }
 
     > h2 {
       margin-top: 0;
-      margin-bottom: 2.5rem;
-      font-size: clamp(4rem, 4rem, 4rem);
+      margin-bottom: clamp(1.5rem, 2vw, 2.5rem);
+      font-size: clamp(2rem, 5vw, 4rem);
       font-weight: 700;
       color: $color-primary;
+      word-wrap: break-word;
     }
 
     > span:nth-child(3) {
       margin-top: 0;
-      margin-bottom: 1rem;
-      font-size: clamp(1.5rem, 1.5rem, 1.5rem);
-      line-height: 1.8125rem;
+      margin-bottom: clamp(0.75rem, 1vw, 1rem);
+      font-size: clamp(1.1rem, 1.35vw, 1.5rem);
+      line-height: clamp(1.35rem, 1.5vw, 1.8125rem);
       font-weight: 700;
       color: $color-primary;
     }
 
     > p:nth-child(4) {
       margin: 0;
-      font-size: clamp(1rem, 1rem, 1rem);
-      line-height: 1.1875rem;
+      font-size: clamp(0.875rem, 1.2vw, 3rem);
+      line-height: clamp(1.05rem, 1.15vw, 1.1875rem);
       font-weight: 400;
+      line-height: 1.4rem;
       color: $color-white;
     }
 
     > p:nth-child(5) {
       margin: 0;
-      font-size: clamp(1rem, 1rem, 1rem);
-      line-height: 1.1875rem;
+      font-size: clamp(0.875rem, 1.2vw, 2rem);
+      line-height: clamp(1.05rem, 1.15vw, 1.1875rem);
       font-weight: 400;
       color: $color-primary;
 
       .tertiary1 {
         color: $color-white;
         font-weight: 400;
-        margin: 0 1rem 0 0;
+        margin: 0 clamp(0.5rem, 0.75vw, 1rem) 0 0;
       }
 
       .tertiary2 {
@@ -82,20 +125,30 @@ $color-error: rgba(236, 123, 123, 1);
   }
 
   > .contact-form-container {
-    width: 38.5rem;
+    width: 100%;
+    max-width: 38.5rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 
+    @include responsive(mobile) {
+      max-width: 100%;
+    }
+
     > form {
-      > .form-field:nth-child(4) {
+      width: 100%;
+
+      > .form-field--privacy {
         flex-direction: row !important;
-        padding: 2rem 0 !important;
-        gap: 0.5rem !important;
-        font-size: clamp(0.9375rem, 0.9375rem, 0.9375rem);
-        line-height: 1.125rem;
+        padding: clamp(1rem, 1.5vw, 2rem) 0 !important;
+        font-size: clamp(0.75rem, 1vw, 0.9375rem);
+        line-height: clamp(0.9rem, 1vw, 1.125rem);
         font-weight: 400;
         color: $color-white;
+
+        @include responsive(mobile) {
+          width: 100%;
+        }
       }
     }
   }
@@ -117,12 +170,17 @@ $color-error: rgba(236, 123, 123, 1);
 .submit-button-container {
   position: relative;
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: clamp(1.5rem, 2.5vw, 3rem);
   display: inline-block;
+
+  @include responsive(mobile) {
+    width: 100%;
+    text-align: center;
+  }
 
   .tooltip {
     visibility: hidden;
-    width: 250px;
+    width: clamp(180px, 25vw, 250px);
     background-color: rgba(0, 0, 0, 0.8);
     color: $color-white;
     text-align: center;
@@ -135,7 +193,7 @@ $color-error: rgba(236, 123, 123, 1);
     transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.3s;
-    font-size: 0.875rem;
+    font-size: clamp(0.75rem, 0.85vw, 0.875rem);
 
     &::after {
       content: "";
@@ -161,8 +219,8 @@ form {
 }
 
 .form-label {
-  font-size: clamp(1.5rem, 1.5rem, 1.5rem);
-  line-height: 1.8125rem;
+  font-size: clamp(1.125rem, 1.35vw, 1.5rem);
+  line-height: clamp(1.35rem, 1.6vw, 1.8125rem);
   font-weight: 500;
   color: $color-primary;
 }
@@ -170,48 +228,53 @@ form {
 .form-field {
   display: flex;
   flex-direction: column;
-  padding: 2rem;
-  gap: 1rem;
+  padding: clamp(1rem, 1.5vw, 2rem);
+  gap: clamp(0.5rem, 0.8vw, 1rem);
 }
 
 input {
-  font-size: clamp(1.125rem, 1.125rem, 1.125rem);
-  line-height: 1.375rem;
+  font-size: clamp(0.95rem, 1.05vw, 1.125rem);
+  line-height: clamp(1.15rem, 1.25vw, 1.375rem);
   background-color: $color-bg;
   color: $color-white;
   border: none;
   outline: none;
+  width: 100%;
 }
 
 input.ng-invalid.ng-touched::placeholder {
-  font-size: clamp(1.125rem, 1.125rem, 1.125rem);
-  line-height: 1.375rem;
+  font-size: clamp(0.95rem, 1.05vw, 1.125rem);
+  line-height: clamp(1.15rem, 1.25vw, 1.375rem);
   font-weight: 400;
   color: rgba(236, 123, 123, 0.8);
 }
 
 ::placeholder {
   color: rgba(255, 255, 255, 0.8);
-  font-size: clamp(1.125rem, 1.125rem, 1.125rem);
-  line-height: 1.375rem;
+  font-size: clamp(0.95rem, 1.05vw, 1.125rem);
+  line-height: clamp(1.15rem, 1.25vw, 1.375rem);
 }
 
 .policy-link {
-  font-size: clamp(0.9375rem, 0.9375rem, 0.9375rem);
-  line-height: 1.125rem;
+  font-size: clamp(0.8rem, 0.85vw, 0.9375rem);
+  line-height: clamp(0.95rem, 1vw, 1.125rem);
   font-weight: 400;
   color: $color-primary;
 }
 
 .submit-button {
   margin: 0 auto;
-  margin-top: 3rem;
+  margin-top: clamp(1.5rem, 2.5vw, 3rem);
   border: 0.0625rem solid $color-white;
-  padding: 0.75rem 1.5rem;
+  padding: clamp(0.5rem, 0.65vw, 0.75rem) clamp(1rem, 1.25vw, 1.5rem);
   border-radius: 6.25rem;
-  font-size: clamp(1.125rem, 1.125rem, 1.125rem);
-  line-height: 1.375rem;
+  font-size: clamp(0.95rem, 1.05vw, 1.125rem);
+  line-height: clamp(1.15rem, 1.25vw, 1.375rem);
   font-weight: 400;
+
+  @include responsive(mobile) {
+    margin-right: 0;
+  }
 
   &:hover {
     cursor: pointer;
@@ -222,15 +285,21 @@ input.ng-invalid.ng-touched::placeholder {
 
 .error-message {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: clamp(0.5rem, 0.8vw, 1rem);
   color: $color-error;
-  font-size: clamp(0.875rem, 0.875rem, 0.875rem);
-  line-height: 1.0625rem;
+  font-size: clamp(0.75rem, 0.8vw, 0.875rem);
+  line-height: clamp(0.9rem, 0.95vw, 1.0625rem);
 }
 
 .checkbox-wrapper-43 {
   display: flex;
-  margin: 2rem 0 0 0;
+  margin: clamp(1rem, 1.5vw, 2rem) 0 0 0;
+  align-items: center;
+
+  @include responsive(mobile) {
+    max-width: 100%;
+    font-size: clamp(0.8rem, 0.9vw, 1rem);
+  }
 }
 
 .checkbox-wrapper-43 input[type="checkbox"] {
@@ -241,7 +310,11 @@ input.ng-invalid.ng-touched::placeholder {
 .checkbox-wrapper-43 label {
   display: inline-block;
   color: white;
-  margin: 0 2rem 0 1rem;
+  margin: 0 clamp(1rem, 1.5vw, 2rem) 0 clamp(0.5rem, 0.75vw, 1rem);
+
+  @include responsive(mobile) {
+    margin: 0 0 0 clamp(0.5rem, 0.75vw, 1rem);
+  }
 }
 
 .checkbox-wrapper-43 .check {
@@ -250,6 +323,7 @@ input.ng-invalid.ng-touched::placeholder {
   margin: auto;
   width: 18px;
   height: 18px;
+  flex-shrink: 0;
   -webkit-tap-highlight-color: transparent;
   transform: translate3d(0, 0, 0);
 }
@@ -304,50 +378,53 @@ input.ng-invalid.ng-touched::placeholder {
 }
 
 .separator {
-  width: 100%;
+  width: clamp(50px, 80%, 880px);
   max-width: 880px;
   position: relative;
   height: 1px;
   background-color: #3dcfb6;
   border-radius: 9999px;
+
+  @include responsive(mobile) {
+    max-width: 100%;
+  }
+
+  @include responsive(tablet) {
+    max-width: 100%;
+  }
 }
 
-@media (min-width: 320px) and (max-width: 600px) {
+.contact-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 320px) and (max-width: 1023px) {
   .contact-container {
-    position: relative;
-    right: 5rem;
-    display: flex;
-    flex-direction: column;
-
-    span:nth-child(3) {
-      font-size: 1.3rem !important;
-    }
-    p:nth-child(4) {
-      width: 300px;
-    }
-
-    .checkbox-wrapper-43 {
-      width: 420px;
-    }
+    max-width: clamp(270px, 90vw, 550px);
+    padding: 0 15px;
   }
 
-  h2 {
-    width: 100%;
-    max-width: 300px;
-    font-size: 3rem !important;
+  .contact-container p,
+  .contact-container div {
+    font-size: clamp(14px, 3.5vw, 16px);
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+@media (max-width: 319px) {
+  .contact-container {
+    max-width: 100%;
+    padding: 0 10px;
   }
 
-  .checkbox-wrapper-43 {
-    max-width: 320px;
-    font-size: 16px;
-    position: relative;
-  }
-
-  .separator {
-    max-width: 290px;
-  }
-
-  .submit-button {
-    margin-right: 18rem;
+  .contact-container p,
+  .contact-container div {
+    font-size: 14px;
   }
 }

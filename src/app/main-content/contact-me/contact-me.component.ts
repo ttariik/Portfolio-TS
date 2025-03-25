@@ -1,57 +1,67 @@
-import { Component, OnInit, OnDestroy, inject } from '@angular/core';
-import { FormsModule, NgForm, NgModel } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit, OnDestroy, inject } from "@angular/core";
+import { FormsModule, NgForm, NgModel } from "@angular/forms";
+import { HttpClient } from "@angular/common/http";
+import { CommonModule } from "@angular/common";
+import { TranslatePipe, TranslateService } from "@ngx-translate/core";
+import { Subscription } from "rxjs";
 
 @Component({
-  selector: 'app-contact-me',
+  selector: "app-contact-me",
   standalone: true,
   imports: [FormsModule, CommonModule, TranslatePipe],
-  templateUrl: './contact-me.component.html',
-  styleUrls: ['./contact-me.component.scss'], 
+  templateUrl: "./contact-me.component.html",
+  styleUrls: ["./contact-me.component.scss"],
 })
 export class ContactMeComponent implements OnInit, OnDestroy {
   private langChangeSub: Subscription | undefined;
   private http = inject(HttpClient);
 
   contactData = {
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
     privacyPolicy: false,
   };
 
   validationErrors = {
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   };
 
   placeholders = {
-    name: '',
-    email: '',
-    message: '',
+    name: "",
+    email: "",
+    message: "",
   };
 
   mailTest = false;
   submitAttempted = false;
-  
+
   post = {
-    endPoint: 'https://.dev/api/sendMail.php',
+    endPoint: "https://.dev/api/sendMail.php",
     body: (payload: any) => JSON.stringify(payload),
     options: {
       headers: {
-        'Content-Type': 'text/plain',
-        responseType: 'text',
+        "Content-Type": "text/plain",
+        responseType: "text",
       },
     },
   };
 
-
-
   constructor(private translate: TranslateService) {}
+
+  get isFormValid(): boolean {
+    return (
+      this.contactData.privacyPolicy === true &&
+      this.contactData.name.trim().length > 0 &&
+      this.contactData.email.trim().length > 0 &&
+      this.contactData.message.trim().length > 0 &&
+      !this.validationErrors.name &&
+      !this.validationErrors.email &&
+      !this.validationErrors.message
+    );
+  }
 
   ngOnInit(): void {
     this.loadPlaceholders();
@@ -67,56 +77,62 @@ export class ContactMeComponent implements OnInit, OnDestroy {
   private loadPlaceholders(): void {
     this.translate
       .get([
-        'contactMe.form.placeholder.name',
-        'contactMe.form.placeholder.email',
-        'contactMe.form.placeholder.help',
+        "contactMe.form.placeholder.name",
+        "contactMe.form.placeholder.email",
+        "contactMe.form.placeholder.help",
       ])
       .subscribe((translations: any) => {
-        this.placeholders.name = translations['contactMe.form.placeholder.name'];
-        this.placeholders.email = translations['contactMe.form.placeholder.email'];
-        this.placeholders.message = translations['contactMe.form.placeholder.help'];
+        this.placeholders.name =
+          translations["contactMe.form.placeholder.name"];
+        this.placeholders.email =
+          translations["contactMe.form.placeholder.email"];
+        this.placeholders.message =
+          translations["contactMe.form.placeholder.help"];
       });
   }
 
   validateName(name: string): boolean {
     const nameRegex = /^[a-zA-ZäöüÄÖÜß\s]+$/;
     const isValid = nameRegex.test(name);
-    
+
     if (!isValid && name) {
-      this.validationErrors.name = this.translate.instant('contactMe.form.errorMessages.nameInvalid') || 
-        'Bitte nur Buchstaben eingeben (keine Zahlen oder Sonderzeichen)';
+      this.validationErrors.name =
+        this.translate.instant("contactMe.form.errorMessages.nameInvalid") ||
+        "Bitte nur Buchstaben eingeben (keine Zahlen oder Sonderzeichen)";
     } else {
-      this.validationErrors.name = '';
+      this.validationErrors.name = "";
     }
-    
+
     return isValid;
   }
 
   validateEmail(email: string): boolean {
     const emailRegex = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
     const isValid = emailRegex.test(email);
-    
+
     if (!isValid && email) {
-      this.validationErrors.email = this.translate.instant('contactMe.form.errorMessages.emailInvalid') || 
-        'Bitte eine gültige E-Mail-Adresse eingeben';
+      this.validationErrors.email =
+        this.translate.instant("contactMe.form.errorMessages.emailInvalid") ||
+        "Bitte eine gültige E-Mail-Adresse eingeben";
     } else {
-      this.validationErrors.email = '';
+      this.validationErrors.email = "";
     }
-    
+
     return isValid;
   }
 
   validateMessage(message: string): boolean {
     const messageRegex = /^[a-zA-Z0-9äöüÄÖÜß\s]+$/;
     const isValid = messageRegex.test(message);
-    
+
     if (!isValid && message) {
-      this.validationErrors.message = this.translate.instant('contactMe.form.errorMessages.messageInvalid') || 
-        'Bitte nur Buchstaben und Zahlen eingeben (keine Sonderzeichen)';
+      this.validationErrors.message =
+        this.translate.instant("contactMe.form.errorMessages.messageInvalid") ||
+        "Bitte nur Buchstaben und Zahlen eingeben (keine Sonderzeichen)";
     } else {
-      this.validationErrors.message = '';
+      this.validationErrors.message = "";
     }
-    
+
     return isValid;
   }
 
@@ -125,7 +141,7 @@ export class ContactMeComponent implements OnInit, OnDestroy {
       if (this.validationErrors.name) {
         return this.validationErrors.name;
       }
-      return this.translate.instant('contactMe.form.errorMessages.name');
+      return this.translate.instant("contactMe.form.errorMessages.name");
     }
     return this.placeholders.name;
   }
@@ -135,7 +151,7 @@ export class ContactMeComponent implements OnInit, OnDestroy {
       if (this.validationErrors.email) {
         return this.validationErrors.email;
       }
-      return this.translate.instant('contactMe.form.errorMessages.email');
+      return this.translate.instant("contactMe.form.errorMessages.email");
     }
     return this.placeholders.email;
   }
@@ -145,7 +161,7 @@ export class ContactMeComponent implements OnInit, OnDestroy {
       if (this.validationErrors.message) {
         return this.validationErrors.message;
       }
-      return this.translate.instant('contactMe.form.errorMessages.help');
+      return this.translate.instant("contactMe.form.errorMessages.help");
     }
     return this.placeholders.message;
   }
@@ -158,10 +174,10 @@ export class ContactMeComponent implements OnInit, OnDestroy {
     if (!isNameValid || !isEmailValid || !isMessageValid) {
       return;
     }
-    
+
     if (ngForm.valid) {
       if (!this.contactData.privacyPolicy) {
-        console.error('Bitte akzeptieren Sie die Datenschutzbestimmungen.');
+        console.error("Bitte akzeptieren Sie die Datenschutzbestimmungen.");
         return;
       }
 
@@ -176,23 +192,23 @@ export class ContactMeComponent implements OnInit, OnDestroy {
             console.table(response);
             ngForm.resetForm();
             this.validationErrors = {
-              name: '',
-              email: '',
-              message: ''
+              name: "",
+              email: "",
+              message: "",
             };
           },
-          error: (error) => console.error('Fehler beim Senden:', error),
-          complete: () => console.info('Mailversand abgeschlossen'),
+          error: (error) => console.error("Fehler beim Senden:", error),
+          complete: () => console.info("Mailversand abgeschlossen"),
         });
     }
   }
 
   checkPrivacyPolicy(): void {
     if (!this.contactData.privacyPolicy) {
-     this.submitAttempted = true;
+      this.submitAttempted = true;
       event?.preventDefault();
     } else {
-     this.submitAttempted = false;
+      this.submitAttempted = false;
     }
   }
 }

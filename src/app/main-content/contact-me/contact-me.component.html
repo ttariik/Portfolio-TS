@@ -138,13 +138,12 @@
 
       <div class="submit-button-container" data-aos="zoom-out" data-aos-delay="1400">
         <input
-          class="submit-button"
-          [ngClass]="{'disabled-button': !contactData.privacyPolicy}"
-          type="submit"
-          value="Say Hello :)"
-          [disabled]="!contactForm.valid || !contactData.privacyPolicy || 
-                    validationErrors.name || validationErrors.email || validationErrors.message"
-          (click)="checkPrivacyPolicy()"
+        class="submit-button"
+        [ngClass]="{'disabled-button': !isFormValid}"
+        type="submit"
+        value="Say Hello :)"
+        [disabled]="!isFormValid"
+        (click)="checkPrivacyPolicy()"
         />
         <span class="tooltip" *ngIf="!contactData.privacyPolicy">  {{ "contactMe.form.extra.acceptMessage" | translate }}</span>
       </div>

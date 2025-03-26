@@ -92,7 +92,6 @@ $accent-bg: rgba(61, 207, 182, 0.1);
       width: clamp(16rem, 45vw, 35rem);
 
       @media (max-width: 900px) {
-        width: clamp(15rem, 90vw, 35rem);
         align-items: center;
         text-align: center;
       }

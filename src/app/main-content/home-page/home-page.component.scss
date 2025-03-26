@@ -144,7 +144,6 @@ h2 {
       align-items: center;
 
       img {
-        width: clamp(1rem, 2vw, 3rem);
         height: auto;
       }
     }
@@ -201,8 +200,8 @@ h2 {
 
     &.github {
       > .social-icon:nth-child(1) {
-        width: clamp(1.25rem, 2.5vw, 2rem);
-        height: clamp(1.25rem, 2.5vw, 2rem);
+height: 30px;
+width: 30px;
         background-image: url(../../../assets/img/github.svg);
         background-position: center;
         background-size: cover;
@@ -233,8 +232,8 @@ h2 {
 
     &.linkedin {
       > .social-icon:nth-child(1) {
-        width: clamp(1.25rem, 2.5vw, 2rem);
-        height: clamp(1.25rem, 2.5vw, 2rem);
+  height: 30px;
+  width: 30px;
         background-image: url(../../../assets/img/linkedIn.svg);
         background-position: center;
         background-size: cover;

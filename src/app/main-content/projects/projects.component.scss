@@ -59,7 +59,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1rem, 2vw, 2rem); 
+    padding: 2rem;
     flex-wrap: wrap;
 
     &:hover {
@@ -212,7 +212,7 @@
     width: 100%;
     max-width: clamp(20rem, 100%, 55rem);
     position: relative;
-    bottom: clamp(5rem, 8vw, 9.4rem); 
+    bottom: 7rem;
     height: 0.0625rem;
     background-color: #3DCFB6;
     border-radius: 9999px;
@@ -260,9 +260,7 @@
       margin-left: clamp(0.5rem, 2vw, 2rem);
     }
     
-    .work-item {
-      padding: clamp(1rem, 2vw, 2rem);
-    }
+
   }
 }
 
@@ -294,7 +292,7 @@
   .work-section{
     .divider-fix{
       position: relative;
-      bottom: 9.1rem;
+      bottom: 10.1rem;
     }
   }
 }
@@ -304,7 +302,28 @@
   .work-section{
     .divider-fix{
       position: relative;
-      bottom: 9.1rem;
+      bottom: 8.4rem;
     }
   }
 }
+
+
+@media (min-width: 1030px) and (max-width: 1920px){
+  .work.section{
+    width: 100%;
+max-width: 1440px;
+margin: 0 auto;
+  }
+}
+
+
+
+@media (min-width: 1920px) and (max-width: 4000px) {
+  .work.section {
+    .divider-fix {
+      position: relative;
+      bottom: 8rem;
+    }
+  }
+}
+

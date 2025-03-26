@@ -2,7 +2,6 @@
   id="aboutSection"
   class="about-container"
   data-aos="fade-up"
-  data-aos-duration="1500"
 >
   <div class="about-inner">
     <div class="about-image-wrapper">
@@ -11,7 +10,6 @@
         src="./../../../assets/img/white-1556107_640.png"
         alt="Profil Picture"
         data-aos="zoom-in"
-        data-aos-duration="2000"
       />
 
       <img
@@ -19,32 +17,31 @@
         src="./../../../assets/img/background-photo.svg"
         alt="Profil Picture Background"
         data-aos="zoom-in"
-        data-aos-duration="2000"
       />
     </div>
 
-    <div class="about-text" data-aos="fade-left" data-aos-duration="1800">
-      <h3 data-aos="fade-down" data-aos-duration="2000">
+    <div class="about-text" data-aos="fade-left">
+      <h3 data-aos="fade-down">
         {{ "aboutMe.heading.primary" | translate }}
       </h3>
       <div class="about-content">
-        <h2 class="mono-font" data-aos="fade-up" data-aos-duration="2200">
+        <h2 class="mono-font" data-aos="fade-up">
           {{ "aboutMe.heading.secondary" | translate }}
         </h2>
-        <p class="light-text" data-aos="fade-up" data-aos-duration="2400">
+        <p class="light-text" data-aos="fade-up">
           {{ "aboutMe.introduction" | translate }}
         </p>
-        <div class="info-group" data-aos="slide-right" data-aos-duration="2000">
+        <div class="info-group" data-aos="slide-right">
           <a target="_blank" href="https://maps.app.goo.gl/58XEsDJ63HHtVyVx8">
             <app-svg-icon iconName="location-icon"></app-svg-icon>
           </a>
           <span>{{ "aboutMe.texts.location" | translate }}</span>
         </div>
-        <div class="info-group" data-aos="slide-left" data-aos-duration="2400">
+        <div class="info-group" data-aos="slide-left">
           <app-svg-icon iconName="cognition-icon"></app-svg-icon>
           <span>{{ "aboutMe.texts.mindset" | translate }}</span>
         </div>
-        <div class="info-group" data-aos="slide-right" data-aos-duration="2600">
+        <div class="info-group" data-aos="slide-right">
           <app-svg-icon iconName="new-release-icon"></app-svg-icon>
           <span>{{ "aboutMe.texts.newProjects" | translate }}</span>
         </div>

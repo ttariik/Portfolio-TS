@@ -15,8 +15,10 @@ section {
   margin: 0 auto;
   padding: 3rem;
   width: 100%;
-  max-width: 1344px;
+  max-width: 1240px;
 }
+
+
 
 .skill-set-container {
   display: flex;
@@ -38,7 +40,6 @@ section {
   gap: 1.25rem; 
   text-align: center;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   max-width: clamp(37.5rem, 43.75vw, 43.75rem);
   width: 100%;
@@ -47,6 +48,7 @@ section {
   flex-wrap: wrap;
   gap: clamp(2rem, 5.5vw, 5.5rem);
   margin: clamp(3rem, 5vw, 3rem) 0 0 0;
+  margin: 0 auto;
 }
 
 h2 {
@@ -388,11 +390,25 @@ h3 {
   }
 
   .technologies {
-    margin: 3rem 6rem 3rem 0;
+
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
   }
 }
 
 
+@media (min-width: 320px) and (max-width:700px){
+  .technologies {
 
+    width: 100%;
+
+  }
+}
+
+@media (min-width: 320px) and (max-width:620px){
+  .technologies {
+
+    width: 100%;
+ 
+  }
+}

@@ -177,7 +177,6 @@ export class ContactMeComponent implements OnInit, OnDestroy {
 
     if (ngForm.valid) {
       if (!this.contactData.privacyPolicy) {
-        console.error("Bitte akzeptieren Sie die Datenschutzbestimmungen.");
         return;
       }
 
@@ -197,8 +196,6 @@ export class ContactMeComponent implements OnInit, OnDestroy {
               message: "",
             };
           },
-          error: (error) => console.error("Fehler beim Senden:", error),
-          complete: () => console.info("Mailversand abgeschlossen"),
         });
     }
   }

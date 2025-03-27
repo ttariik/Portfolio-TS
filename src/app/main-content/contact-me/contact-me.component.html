@@ -3,20 +3,20 @@
   id="contact-section"
   data-aos="fade-up"
 >
-  <div class="contact-details" data-aos="fade-right" data-aos-delay="200">
-    <span data-aos="fade-down" data-aos-delay="300">
+  <div class="contact-details" data-aos="fade-right">
+    <span data-aos="fade-down">
       {{ "contactMe.introduction.header" | translate }}
     </span>
-    <h2 class="fira-code" data-aos="zoom-in" data-aos-delay="400">
+    <h2 class="fira-code" data-aos="zoom-in">
       {{ "contactMe.introduction.head" | translate }}
     </h2>
-    <span class="fira-code" data-aos="fade-left" data-aos-delay="500">
+    <span class="fira-code" data-aos="fade-left">
       {{ "contactMe.texts.primary" | translate }}
     </span>
-    <p data-aos="fade-up" data-aos-delay="600">
+    <p data-aos="fade-up">
       {{ "contactMe.texts.secondary" | translate }}<br /><br />
     </p>
-    <p data-aos="fade-up" data-aos-delay="700">
+    <p data-aos="fade-up">
       <span class="tertiary1">{{
         "contactMe.texts.tertiary1" | translate
       }}</span>
@@ -26,10 +26,10 @@
     </p>
   </div>
 
-  <div class="contact-form-container" data-aos="fade-left" data-aos-delay="800">
+  <div class="contact-form-container" data-aos="fade-left">
     <div class="separator"></div>
     <form (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
-      <div class="form-field" data-aos="flip-up" data-aos-delay="900">
+      <div class="form-field" data-aos="flip-up">
         <label class="fira-code form-label" for="contactName">
           {{ "contactMe.form.name" | translate }}
         </label>
@@ -53,7 +53,7 @@
       </div>
       <div class="separator"></div>
 
-      <div class="form-field" data-aos="flip-up" data-aos-delay="1000">
+      <div class="form-field" data-aos="flip-up">
         <label class="fira-code form-label" for="contactEmail">
           {{ "contactMe.form.email" | translate }}
         </label>
@@ -77,7 +77,7 @@
       </div>
       <div class="separator"></div>
 
-      <div class="form-field" data-aos="flip-up" data-aos-delay="1100">
+      <div class="form-field" data-aos="flip-up">
         <label class="fira-code form-label" for="contactMessage">
           {{ "contactMe.form.help" | translate }}
         </label>
@@ -104,7 +104,6 @@
       <div
         class="form-field--privacy checkbox-wrapper-43"
         data-aos="fade-in"
-        data-aos-delay="1200"
       >
         <input
           #privacyPolicy="ngModel"
@@ -135,7 +134,7 @@
 
 
 
-      <div class="submit-button-container" data-aos="zoom-out" data-aos-delay="1400">
+      <div class="submit-button-container" data-aos="zoom-out">
         <input
         class="submit-button"
         [ngClass]="{'disabled-button': !isFormValid}"

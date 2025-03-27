@@ -68,7 +68,6 @@ export class ModalComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['project']) {
-      console.log('Project ID updated:', this.project);
       if (this.currentProject) {
         this.renderer.setStyle(document.body, 'overflow', 'hidden');
         this.renderer.setStyle(document.documentElement, 'overflow', 'hidden');

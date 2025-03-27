@@ -1,15 +1,17 @@
 <div class="footer" data-aos="fade-in">
   <div class="footer__container">
-    
-    <div class="footer__section footer__section--left" 
-         data-aos="fade-right" data-aos-delay="200">
+    <div class="footer__section footer__section--left" data-aos="fade-right">
       <a [href]="footerInfo.logoLink">
-        <div data-aos="zoom-in" data-aos-delay="400"></div>
+        <div data-aos="zoom-in"></div>
         <a href="#aboutSection">
-          <div class="footer__logo" data-aos="zoom-in" data-aos-easing="ease-out-back"></div>
+          <div
+            class="footer__logo"
+            data-aos="zoom-in"
+            data-aos-easing="ease-out-back"
+          ></div>
         </a>
       </a>
-      <div class="footer__info" data-aos="fade-up" data-aos-delay="600">
+      <div class="footer__info" data-aos="fade-up">
         <span class="footer__title">{{ footerInfo.title | translate }}</span>
         <a href="https://maps.app.goo.gl/58XEsDJ63HHtVyVx8" target="_blank">
           <span class="footer__location">
@@ -23,17 +25,11 @@
       &copy; Tarik Sabanovic {{ currentYear }}
     </div>
 
-    <div class="footer__section footer__section--right" 
-         data-aos="fade-left" data-aos-delay="1000">
-      <div *ngFor="let link of footerLinks; let i = index" 
-           data-aos="flip-up" 
-           [attr.data-aos-delay]="1200 + (i * 200)">
+    <div class="footer__section footer__section--right" data-aos="fade-left">
+      <div *ngFor="let link of footerLinks; let i = index" data-aos="flip-up">
         <ng-container *ngIf="link.internal; else externalLink">
           <a [routerLink]="link.url">
-            <div class="footer__icon" 
-                 data-aos="zoom-in" 
-                 [attr.data-aos-delay]="1400 + (i * 200)">
-            </div>
+            <div class="footer__icon" data-aos="zoom-in"></div>
             <span>
               {{ link.translate ? (link.label | translate) : link.label }}
             </span>
@@ -41,10 +37,7 @@
         </ng-container>
         <ng-template #externalLink>
           <a [href]="link.url" [attr.target]="link.target">
-            <div class="footer__icon" 
-                 data-aos="zoom-in" 
-                 [attr.data-aos-delay]="1400 + (i * 200)">
-            </div>
+            <div class="footer__icon" data-aos="zoom-in"></div>
             <span>
               {{ link.translate ? (link.label | translate) : link.label }}
             </span>
@@ -52,6 +45,5 @@
         </ng-template>
       </div>
     </div>
-
   </div>
 </div>

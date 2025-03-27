@@ -29,7 +29,6 @@ export class HeaderComponent {
 
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
-    console.log('Burger-Menü toggled: ', this.isMenuOpen);
   }
 
   onMenuClick(event: Event): void {

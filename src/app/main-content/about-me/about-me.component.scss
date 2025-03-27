@@ -109,8 +109,6 @@ $accent-bg: rgba(61, 207, 182, 0.1);
       }
 
       .about-content {
-        width: 100%;
-        max-width: 100%;
         padding: clamp(1rem, 3vw, 2rem) !important;
         display: flex;
         flex-direction: column;

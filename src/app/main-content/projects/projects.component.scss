@@ -7,6 +7,7 @@
   width: 100%;
   max-width: 1250px;
   margin: 0 auto;
+  padding: 8rem 2rem;
 
   .section-heading {
     font-size: clamp(1.25rem, 1.5vw, 1.5rem); 
@@ -56,6 +57,7 @@
   }
 
   .work-item {
+    border-bottom: 1px solid #3DCFB6;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -208,15 +210,7 @@
     }
   }
 
-  .divider-fix {
-    width: 100%;
-    max-width: clamp(20rem, 100%, 55rem);
-    position: relative;
-    bottom: 7rem;
-    height: 0.0625rem;
-    background-color: #3DCFB6;
-    border-radius: 9999px;
-  }
+  
 
 .divider-fix2{
   width: 100%;
@@ -280,50 +274,28 @@
       font-size: clamp(0.8rem, 1vw, 0.9rem);
     }
     
-    .divider, .divider-fix, .divider-fix2 {
+     .divider-fix2 {
       max-width: 100%;
     }
   }
 }
 
-
-@media (min-width: 320px) and (max-width: 768px) {
-
-  .work-section{
-    .divider-fix{
-      position: relative;
-      bottom: 10.1rem;
-    }
-  }
-}
-
-
-@media (min-width: 1030px) and (max-width: 1920px) {
-  .work-section{
-    .divider-fix{
-      position: relative;
-      bottom: 8.4rem;
-    }
-  }
-}
-
-
-@media (min-width: 1030px) and (max-width: 1920px){
-  .work.section{
-    width: 100%;
-max-width: 1440px;
-margin: 0 auto;
-  }
-}
-
-
-
 @media (min-width: 1920px) and (max-width: 4000px) {
-  .work.section {
-    .divider-fix {
-      position: relative;
-      bottom: 8rem;
+  .work-section{
+    .modal-overlay{
+      > div{
+        width: 100%;
+        max-width: 1200px;
+      }
     }
-  }
+  }  
 }
+
+
+
+
+
+
+
+
 

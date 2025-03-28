@@ -47,19 +47,19 @@
   right: 0;
 }
 
-/* Begrenzter Inhalt */
+
 .header-content {
   margin: auto;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1600px; /* Hier wird die max. Breite festgelegt */
+  max-width: 1600px; 
   height: clamp(4rem, 10vw, 6.25rem);
   padding: 0 clamp(1rem, 6vw, 6rem);
 }
 
-/* Bestehende Styles bleiben unverändert – z.B. für .logo, .left-side-header etc. */
+
 .header-content .logo {
   width: clamp(40px, 15vw, 180px);
   height: clamp(100px, 15vw, 180px);

@@ -33,6 +33,48 @@
   }
 }
 
+
+.header-full {
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6),
+    rgba(0, 0, 0, 0)
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Begrenzter Inhalt */
+.header-content {
+  margin: auto;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1600px; /* Hier wird die max. Breite festgelegt */
+  height: clamp(4rem, 10vw, 6.25rem);
+  padding: 0 clamp(1rem, 6vw, 6rem);
+}
+
+/* Bestehende Styles bleiben unverändert – z.B. für .logo, .left-side-header etc. */
+.header-content .logo {
+  width: clamp(40px, 15vw, 180px);
+  height: clamp(100px, 15vw, 180px);
+  margin-top: 0.5rem;
+  border-radius: 20px;
+  background: url("./../../../assets/img/logo.png") no-repeat center;
+  background-size: cover;
+  transition: background 0.5s ease-in-out, transform 0.5s ease;
+}
+
+.header-content .logo:hover {
+  background-image: url("./../../../assets/img/logo-weiß.png");
+  transform: scale(1.05) rotate(5deg);
+}
+
 .left-side-header {
   display: flex;
   height: clamp(1.25rem, 3vw, 1.75rem);

@@ -1,46 +1,47 @@
-
-
-<div class="header-wrapper" data-aos="fade-down" data-aos-easing="ease-in-out">
-  <div class="burger-menu">
-    <button (click)="toggleMenu()" class="burger-toggle" aria-label="Toggle menu">
-      <app-svg-icon iconName="menu-button"></app-svg-icon>
-    </button>
-  </div>
-
-  <div class="left-side-header" data-aos="fade-right" data-aos-delay="200">
-    <div class="switch" data-aos="flip-left" data-aos-delay="300">
-      <input
-        id="language-toggle"
-        class="check-toggle check-toggle-round-flat"
-        type="checkbox"
-        [checked]="isChecked"
-        (change)="toggleLanguage()"
-      />
-      <label for="language-toggle"></label>
-      <span class="on fira-code" data-aos="fade-in" data-aos-delay="500">EN</span>
-      <span class="off fira-code" data-aos="fade-in" data-aos-delay="600">DE</span>
+<!-- Vollflächiger Header-Hintergrund -->
+<div class="header-full">
+  <!-- Begrenzter Inhalt -->
+  <div class="header-content" data-aos="fade-down" data-aos-easing="ease-in-out">
+    <div class="burger-menu">
+      <button (click)="toggleMenu()" class="burger-toggle" aria-label="Toggle menu">
+        <app-svg-icon iconName="menu-button"></app-svg-icon>
+      </button>
     </div>
-  
-    <a class="fira-code" (click)="scrollTo('aboutSection')" data-aos="slide-right" data-aos-delay="400">
-      {{ 'mainHeader.aboutMe' | translate }}<div></div>
-    </a>
-  
-    <a class="fira-code" (click)="scrollTo('skill-set')" data-aos="slide-right" data-aos-delay="500">
-      {{ 'mainHeader.skillSet' | translate }}<div></div>
-    </a>
-  
-    <a class="fira-code" (click)="scrollTo('projectSection')" data-aos="slide-right" data-aos-delay="600">
-      {{ 'mainHeader.projects' | translate }}<div></div>
+
+    <div class="left-side-header" data-aos="fade-right" data-aos-delay="200">
+      <div class="switch" data-aos="flip-left" data-aos-delay="300">
+        <input
+          id="language-toggle"
+          class="check-toggle check-toggle-round-flat"
+          type="checkbox"
+          [checked]="isChecked"
+          (change)="toggleLanguage()"
+        />
+        <label for="language-toggle"></label>
+        <span class="on fira-code" data-aos="fade-in" data-aos-delay="500">EN</span>
+        <span class="off fira-code" data-aos="fade-in" data-aos-delay="600">DE</span>
+      </div>
+
+      <a class="fira-code" (click)="scrollTo('aboutSection')" data-aos="slide-right" data-aos-delay="400">
+        {{ 'mainHeader.aboutMe' | translate }}<div></div>
+      </a>
+
+      <a class="fira-code" (click)="scrollTo('skill-set')" data-aos="slide-right" data-aos-delay="500">
+        {{ 'mainHeader.skillSet' | translate }}<div></div>
+      </a>
+
+      <a class="fira-code" (click)="scrollTo('projectSection')" data-aos="slide-right" data-aos-delay="600">
+        {{ 'mainHeader.projects' | translate }}<div></div>
+      </a>
+    </div>
+
+    <a (click)="scrollTo('aboutSection')">
+      <div class="logo" data-aos="zoom-in" data-aos-delay="800" data-aos-easing="ease-out-back"></div>
     </a>
   </div>
-  
-  <a (click)="scrollTo('aboutSection')">
-    <div class="logo" data-aos="zoom-in" data-aos-delay="800" data-aos-easing="ease-out-back"></div>
-  </a>
-  
-  
 </div>
 
+<!-- Mobile Menu bleibt unverändert -->
 <div class="mobile-menu" [class.active]="isMenuOpen" (click)="onMenuClick($event)">
   <div class="menu-content">
     <a class="fira-code" (click)="scrollTo('aboutSection')">{{ 'mainHeader.aboutMe' | translate }}</a>
@@ -60,8 +61,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-

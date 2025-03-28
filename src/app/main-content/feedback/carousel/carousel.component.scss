@@ -156,7 +156,6 @@ $transition-duration: 0.5s;
   }
 }
 
-/* Verbesserte Responsivität für mobile Geräte */
 @media (max-width: 480px) {
   .feedback-panel {
     width: calc(100% - 2rem);
@@ -181,9 +180,9 @@ $transition-duration: 0.5s;
   }
   
   .quote-mark {
-    left: clamp(-1.875rem, -5vw, -1rem);
-    top: clamp(-1rem, -3vw, -0.5rem);
-    width: clamp(1.5rem, 5vw, 2.5rem);
+    left: clamp(0.125rem, -5vw, -1rem);
+    top: clamp(-1rem, -5vw, -0.5rem);
+    width: clamp(2.5rem, 5vw, 2.5rem);
   }
   
   .control-wrapper {

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .header-wrapper {
   margin: auto;
   box-sizing: border-box;
@@ -33,7 +35,7 @@
   }
 }
 
-.logo{
+.logo {
   cursor: pointer;
 }
 
@@ -50,18 +52,16 @@
   right: 0;
 }
 
-
 .header-content {
   margin: auto;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1600px; 
+  max-width: 1600px;
   height: clamp(4rem, 10vw, 6.25rem);
   padding: 0 clamp(1rem, 6vw, 6rem);
 }
-
 
 .header-content .logo {
   width: clamp(40px, 15vw, 180px);
@@ -145,9 +145,8 @@
   display: none;
 }
 
-
 @function rem($px) {
-  @return ($px / 16)*1rem;
+  @return math.div($px, 16) * 1rem;
 }
 
 $toggle-width: clamp(4.2rem, rem(84), 6.3rem);
@@ -225,7 +224,7 @@ $text-shadow-color: rgba(0, 0, 0, 0.06);
   }
 
   &:hover {
-    box-shadow: 0 0 10px $glow-color; 
+    box-shadow: 0 0 10px $glow-color;
   }
 
   &:active {
@@ -267,31 +266,11 @@ input.check-toggle-round-flat {
   }
 }
 
-
-
 @media (max-width: 600px) {
   .left-side-header {
     display: none;
   }
 
-  @media (max-width: 600px) {
-    .mobile-menu .switch label {
-      width: clamp(3rem, 12vw, 7.5rem);
-    }
-
-    .mobile-menu .switch input.check-toggle-round-flat + label:before {
-      border-radius: 60px;
-      width: clamp(5rem, 12vw, 7.5rem);
-    }
-
-    .mobile-menu .switch input.check-toggle-round-flat + label:after {
-      width: clamp(3rem, 6vw, 4rem);
-    }
-  }
-
-  .burger-menu {
-    display: block;
-  }
   .mobile-menu {
     position: absolute;
     top: clamp(6.25rem, 10vw, 6.25rem);
@@ -329,20 +308,52 @@ input.check-toggle-round-flat {
     }
 
     .switch {
-      width: clamp(6rem, 12vw, 7.5rem);
-      height: clamp(1.5rem, 3vw, 1.75rem);
+      width: $toggle-width;
+      height: $toggle-height;
       margin: 0 auto;
       position: relative;
+
+      > span.on {
+        left: 0;
+        padding-left: 2px;
+        color: $active-text;
+      }
+
+      > span.off {
+        right: 0;
+        padding-right: 4px;
+        color: $inactive-text;
+      }
     }
 
-    .switch > span.on {
-      left: 0;
-      padding-left: clamp(0.125rem, 0.5vw, 0.125rem);
-    }
+    .switch input.check-toggle-round-flat + label {
+      padding: $toggle-padding;
+      width: $toggle-width;
+      height: $toggle-height;
+      border-radius: $toggle-radius;
 
-    .switch > span.off {
-      right: 0;
-      padding-right: clamp(0.5rem, 1vw, 0.5rem);
+      &:before {
+        top: $border-offset;
+        left: $border-offset;
+        bottom: $border-offset;
+        right: $border-offset;
+        border: 1px solid $primary-color;
+        border-radius: $toggle-radius;
+      }
+
+      &:after {
+        top: $thumb-offset;
+        left: $thumb-offset;
+        bottom: $thumb-offset;
+        width: $toggle-thumb-width;
+        background-color: $primary-color;
+        border-radius: $toggle-inner-radius;
+        transition: margin 0.2s;
+      }
     }
+  }
+
+  .burger-menu {
+    display: block;
   }
 }

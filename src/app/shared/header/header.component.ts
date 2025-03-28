@@ -40,7 +40,6 @@ export class HeaderComponent {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
-    // Falls das mobile Menü offen ist, schließen wir es hier:
     this.isMenuOpen = false;
   }
   

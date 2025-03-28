@@ -35,6 +35,16 @@ export class HeaderComponent {
     event.stopPropagation();
   }
 
+  scrollTo(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    // Falls das mobile Menü offen ist, schließen wir es hier:
+    this.isMenuOpen = false;
+  }
+  
+
   @HostListener('document:click', ['$event'])
   clickOutside(event: Event): void {
     if (this.isMenuOpen && !this.eRef.nativeElement.contains(event.target)) {

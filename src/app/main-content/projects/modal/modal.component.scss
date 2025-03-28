@@ -1,4 +1,5 @@
 .modal-overlay {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -6,100 +7,107 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
   padding: clamp(1rem, 5vw, 3rem);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  overflow-y: auto;
 }
 
 .modal-container {
+  position: relative;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: clamp(2rem, 4vw, 5.5rem);
-  width: 100%;
-  max-width: 95vw; 
+  width: 95%;
+  max-width: 1440px;
   margin: 0 auto;
+  padding: 2rem;
+  border-radius: clamp(0.5rem, 1vw, 1rem);
+  overflow: hidden;
+  border: 0.0625rem solid rgba(61, 207, 182, 1);
+    border-radius: 1rem;
+    background-image: linear-gradient(
+      to bottom left,
+      rgba(8, 70, 59, 1),
+      rgba(28, 28, 28, 1) 60%
+    );
+}
+
+.modal-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+  z-index: -1;
+  transition: background 0.3s ease;
+}
+
+@media (min-width: 1440px) {
+  .modal-container {
+    width: 1440px;
+  }
 }
 
 .modal-info {
   flex: 1;
-  margin: clamp(2rem, 4vw, 5.6875rem) 0;
   display: flex;
   flex-direction: column;
+  margin: clamp(2rem, 4vw, 5.6875rem) 0;
   max-width: clamp(280px, 50%, 620px);
-}
-
-
-@media (min-width: 1400px) {
-  .modal-container {
-    padding: 2rem;
-  }
-  .modal-info, .modal-media {
-    margin: 2rem;
-  }
-}
-
-
-.modal-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(2rem, 4vw, 5.5rem);
-  width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
 }
 
 .modal-media {
   flex: 1;
-  margin: clamp(1.5rem, 3vw, 3.5rem) 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin: clamp(1.5rem, 3vw, 3.5rem) 0;
 }
 
 .modal-media > .modal-image {
-  margin-top: clamp(1rem, 2vw, 2.5rem);
-  margin-bottom: clamp(1.5rem, 3vw, 3rem);
   width: clamp(250px, 90%, 32.5rem);
   border-radius: clamp(1rem, 2vw, 1.875rem);
   position: relative;
   right: clamp(0rem, 3vw, 3rem);
+  margin: clamp(1rem, 2vw, 2.5rem) auto;
 }
 
 .modal-index {
-  color: rgba(61, 207, 182, 1);
+  color: #3dcfb6;
   font-size: clamp(3rem, 8vw, 8rem);
   line-height: clamp(2.5rem, 6vw, 6.25rem);
   font-weight: 700;
-  margin-top: 0;
   margin-bottom: clamp(0.75rem, 1.5vw, 1.5rem);
 }
 
 .modal-title {
-  color: rgba(255, 255, 255, 1);
+  color: #fff;
   font-size: clamp(2rem, 4vw, 4rem);
   line-height: clamp(1.75rem, 3vw, 3.1875rem);
   font-weight: 700;
-  margin-top: 0;
   margin-bottom: clamp(1.25rem, 2.5vw, 2.5rem);
 }
 
 .code-style {
-  color: rgba(61, 207, 182, 1);
+  color: #3dcfb6;
   font-weight: 700;
   font-size: clamp(1rem, 1.5vw, 1.5rem);
   line-height: clamp(1.25rem, 1.8vw, 1.8125rem);
-  margin-top: 0;
   margin-bottom: clamp(0.75rem, 1.25vw, 1.25rem);
 }
 
 .modal-description {
   width: 100%;
-  color: rgba(255, 255, 255, 1);
+  color: #fff;
   font-size: clamp(0.875rem, 1.1vw, 1.125rem);
   line-height: clamp(1.125rem, 1.3vw, 1.375rem);
   font-weight: 400;
-  margin-top: 0;
   margin-bottom: clamp(1.25rem, 2vw, 2rem);
 }
 
@@ -122,11 +130,10 @@
   width: clamp(1rem, 1.5vw, 1.5rem);
   height: clamp(1rem, 1.5vw, 1.5rem);
   transition: transform 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
 }
 
 .skill-item > .skill-label {
-  color: rgba(255, 255, 255, 1);
+  color: #fff;
   font-size: clamp(0.875rem, 1vw, 1rem);
   font-weight: 400;
   transition: color 0.3s ease, text-shadow 0.3s ease;
@@ -152,14 +159,29 @@
   gap: clamp(1rem, 2vw, 2rem);
 }
 
+@media(min-width:320px) and (max-width:992px){
+  .buttons-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .skills-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .action-btn {
   display: flex;
   align-items: center;
-  border: 0.0625rem solid rgba(255, 255, 255, 1);
+  border: 0.0625rem solid #fff;
   border-radius: 100px;
   padding: clamp(0.5rem, 0.8vw, 0.8125rem) clamp(0.75rem, 1.5vw, 1.5rem);
   gap: clamp(0.125rem, 0.25vw, 0.25rem);
   white-space: nowrap;
+  transition: border 0.3s ease, color 0.3s ease;
 }
 
 .action-btn > .btn-decoration {
@@ -168,26 +190,29 @@
   background-image: url("../../../../assets/img/icons_overlay/arrow_green.svg");
   background-position: left;
   background-repeat: no-repeat;
-  background-size: clamp(0.5rem, 0.6vw, 0.625rem) clamp(0.5rem, 0.6vw, 0.625rem);
+  background-size: clamp(0.5rem, 0.6vw, 0.625rem);
   transition: background-position 0.3s ease;
 }
 
 .action-btn:hover {
-  border: 0.0625rem solid rgba(61, 207, 182, 1);
-  color: rgba(61, 207, 182, 1);
+  border-color: #3dcfb6;
+  color: #3dcfb6;
 }
 
 .action-btn:hover > .btn-decoration {
   background-position: right top;
 }
 
-.close-btn-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: clamp(2rem, 3vw, 3rem);
-  height: clamp(2rem, 3vw, 3rem);
+.close-btn-container,
+.next-btn-wrapper {
+  cursor: pointer;
   position: relative;
+  display: flex;
+  align-items: center;
+  margin: clamp(1rem, 2vw, 2rem);
+}
+
+.close-btn-container {
   right: clamp(1rem, 4vw, 4rem);
 }
 
@@ -200,6 +225,13 @@
   transition: background-image 0.3s ease, width 0.3s ease, height 0.3s ease;
 }
 
+@media(min-width:580px) and (max-width:992px){
+.close-btn {
+  position: relative;
+  top: 2rem;
+}
+}
+
 .close-btn:hover {
   cursor: pointer;
   background-image: url("../../../../assets/img/icons_overlay/x_green.svg");
@@ -207,20 +239,13 @@
   height: clamp(1.25rem, 1.5vw, 1.5625rem);
 }
 
-.next-btn-wrapper {
-  display: flex;
-  align-items: center;
-  height: clamp(2rem, 2.5vw, 2.5rem);
-  position: relative;
-  right: clamp(1rem, 4vw, 4rem);
-}
-
 .next-btn-text {
-  color: rgba(61, 207, 182, 1);
+  color: #3dcfb6;
   font-size: clamp(0.875rem, 1.1vw, 1.125rem);
   line-height: clamp(1.125rem, 1.3vw, 1.375rem);
   font-weight: 400;
-  margin: 0 clamp(0.5rem, 1vw, 1rem) 0 0;
+  margin-right: clamp(0.5rem, 1vw, 1rem);
+  transition: color 0.3s ease;
 }
 
 .next-btn-decoration {
@@ -229,16 +254,12 @@
   background-image: url("../../../../assets/img/icons_overlay/arrow_vertical_green.svg");
   background-position: left;
   background-repeat: no-repeat;
-  background-size: clamp(0.875rem, 1.1vw, 1.125rem) clamp(0.875rem, 1.1vw, 1.125rem);
+  background-size: clamp(0.875rem, 1.1vw, 1.125rem);
   transition: background-position 0.3s ease;
 }
 
-.next-btn-wrapper:hover {
-  cursor: pointer;
-}
-
 .next-btn-wrapper:hover > .next-btn-text {
-  color: rgba(255, 255, 255, 1);
+  color: #fff;
 }
 
 .next-btn-wrapper:hover > .next-btn-decoration {
@@ -249,12 +270,11 @@
   .modal-container {
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
+    gap: 0rem;
   }
   
   .modal-info {
     max-width: 90%;
-    align-items: center;
     text-align: center;
     margin: 2rem 0;
   }
@@ -265,7 +285,7 @@
     margin: 2rem 0 0;
   }
   
-  .modal-image {
+  .modal-media > .modal-image {
     right: 0 !important;
   }
   
@@ -285,7 +305,6 @@
   .modal-overlay {
     padding: 1rem;
     align-items: flex-start;
-    overflow-y: auto;
   }
   
   .modal-container {
@@ -294,8 +313,8 @@
   
   .buttons-group {
     flex-direction: column;
-    width: 100%;
     align-items: center;
+    width: 100%;
   }
   
   .action-btn {

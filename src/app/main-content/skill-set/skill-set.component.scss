@@ -41,7 +41,7 @@ section {
 .technologies {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: clamp(2rem, 5.5vw, 5.5rem);
+  gap: clamp(1rem, 5.5vw, 5.5rem);
   text-align: center;
   max-width: clamp(37.5rem, 43.75vw, 43.75rem);
   width: 100%;
@@ -454,11 +454,22 @@ h3 {
   }
 }
 
-
-
 @media (min-width: 320px) and (max-width: 350px) {
   .technologies > app-svg-icon{
     width: 100%;
-    max-width: 50px;
+    max-width: 55px;
+    position: relative;
+    left: 0.6rem;
   }
 }
+
+
+@media (min-width: 350px) and (max-width: 500px) {
+  .technologies > app-svg-icon{
+    width: 100%;
+    max-width: 60px;
+    position: relative;
+    left: 2rem;
+  }
+}
+

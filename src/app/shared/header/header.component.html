@@ -20,31 +20,32 @@
       <span class="on fira-code" data-aos="fade-in" data-aos-delay="500">EN</span>
       <span class="off fira-code" data-aos="fade-in" data-aos-delay="600">DE</span>
     </div>
-
-    <a class="fira-code" href="#aboutSection" data-aos="slide-right" data-aos-delay="400">
+  
+    <a class="fira-code" (click)="scrollTo('aboutSection')" data-aos="slide-right" data-aos-delay="400">
       {{ 'mainHeader.aboutMe' | translate }}<div></div>
     </a>
-
-    <a class="fira-code" href="#skill-set" data-aos="slide-right" data-aos-delay="500">
+  
+    <a class="fira-code" (click)="scrollTo('skill-set')" data-aos="slide-right" data-aos-delay="500">
       {{ 'mainHeader.skillSet' | translate }}<div></div>
     </a>
-
-    <a class="fira-code" href="#projectSection" data-aos="slide-right" data-aos-delay="600">
+  
+    <a class="fira-code" (click)="scrollTo('projectSection')" data-aos="slide-right" data-aos-delay="600">
       {{ 'mainHeader.projects' | translate }}<div></div>
     </a>
   </div>
-
-  <a href="#aboutSection">
+  
+  <a (click)="scrollTo('aboutSection')">
     <div class="logo" data-aos="zoom-in" data-aos-delay="800" data-aos-easing="ease-out-back"></div>
   </a>
+  
   
 </div>
 
 <div class="mobile-menu" [class.active]="isMenuOpen" (click)="onMenuClick($event)">
   <div class="menu-content">
-    <a class="fira-code" href="#aboutSection">{{ 'mainHeader.aboutMe' | translate }}</a>
-    <a class="fira-code" href="#skill-set">{{ 'mainHeader.skillSet' | translate }}</a>
-    <a class="fira-code" href="#projectSection">{{ 'mainHeader.projects' | translate }}</a>
+    <a class="fira-code" (click)="scrollTo('aboutSection')">{{ 'mainHeader.aboutMe' | translate }}</a>
+    <a class="fira-code" (click)="scrollTo('skill-set')">{{ 'mainHeader.skillSet' | translate }}</a>
+    <a class="fira-code" (click)="scrollTo('projectSection')">{{ 'mainHeader.projects' | translate }}</a>
     <div class="switch">
       <input
         id="language-toggle-mobile"
@@ -59,6 +60,7 @@
     </div>
   </div>
 </div>
+
 
 
 

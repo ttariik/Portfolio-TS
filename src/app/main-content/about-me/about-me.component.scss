@@ -20,7 +20,6 @@ $accent-bg: rgba(61, 207, 182, 0.1);
     justify-content: space-evenly;
 
     @media (max-width: 900px) {
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       gap: clamp(0.5rem, 3vw, 2rem);

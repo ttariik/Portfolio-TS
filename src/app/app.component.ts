@@ -1,21 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import {
-  TranslateService,
-  TranslatePipe,
-  TranslateDirective,
-  TranslateModule,
-} from '@ngx-translate/core';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import * as AOS from 'aos';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { TranslationService } from './shared/services/translation.service';
-import { MainContentComponent } from './main-content/main-content.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
 import { CustomCursorComponent } from './shared/custom-cursor/custom-cursor.component';
-
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -33,26 +26,24 @@ import { CustomCursorComponent } from './shared/custom-cursor/custom-cursor.comp
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
-
+export class AppComponent implements OnInit {
   title = 'portfolio';
 
-  constructor() {
-
-   }
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-       { 
-      AOS.init({
-        offset: 100,
-        easing: 'linear',
-        duration: 1000,
-        once: true,
-        mirror: false,
-        debounceDelay: 150,
-        throttleDelay: 200,
-      });
-    }
-    
+    AOS.init({
+      offset: 100,
+      easing: 'linear',
+      duration: 1000,
+      once: true,
+      mirror: false,
+      debounceDelay: 150,
+      throttleDelay: 200,
+    });
+
+    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe(() => {
+      window.scrollTo(0, 0);
+    });
   }
 }

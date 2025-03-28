@@ -5,6 +5,7 @@
   align-items: center;
   height: 100vh;
   width: 100%;
+  overflow-x: hidden;
   background-image: linear-gradient(
     to bottom left,
     rgba(8, 70, 59, 1),
@@ -27,7 +28,7 @@
   align-items: center;
   z-index: 1;
   width: clamp(18rem, 80vw, 70rem);
-  margin: clamp(2rem, 10vw, 10rem) auto;
+  margin: 10rem auto;
   text-align: center;
 
   .button-group {
@@ -149,6 +150,8 @@ h2 {
     }
   }
 
+
+
   .extra-element {
     display: flex;
     height: clamp(6rem, 20vw, 15rem);
@@ -175,6 +178,9 @@ h2 {
   align-items: center;
   width: clamp(1.5rem, 3vw, 2rem);
   gap: clamp(1rem, 2vw, 1.5rem);
+  height: 800px;
+  position: relative;
+  top: 12rem;
 
   .email-link {
     width: max-content;
@@ -285,27 +291,29 @@ width: 30px;
       height: auto;
     }
   }
-  
-  .header-content {
-    margin: clamp(2rem, 8vw, 6rem) auto;
-  }
+
 }
 
 @media (min-width: 320px) and (max-width: 900px) {
+
+ 
+
   .home-container {
     height: auto;
     min-height: 100vh;
     padding-bottom: 4rem;
   }
 
-  .side-panel {
-    position: relative;
-    margin-top: clamp(2rem, 5vh, 4rem);
-    padding-bottom: clamp(2rem, 5vh, 4rem);
-  }
-
   .header-content {
     margin-top: clamp(5rem, 15vh, 10rem);
+    h1{
+      position: relative;
+      left: 1rem;
+    }
+    h2{
+      position: relative;
+      left: 1rem;
+    }
     
     .button-group {
       flex-direction: column;
@@ -357,9 +365,6 @@ width: 30px;
 
 
 @media (min-width: 901px) and (max-width: 1200px) {
-  .header-content {
-    margin: clamp(4rem, 8vw, 8rem) auto;
-  }
   
   .side-left .extra-element,
   .side-right .placeholder {
@@ -372,13 +377,6 @@ width: 30px;
 }
 
 @media (max-width: 375px) {
-  h1 {
-    font-size: clamp(1.75rem, 5vw, 2.5rem);
-  }
-  
-  h2 {
-    font-size: clamp(1rem, 3vw, 1.5rem);
-  }
   
   .header-content {
     width: 90%;

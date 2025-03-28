@@ -55,7 +55,7 @@
   .banner {
     height: clamp(32px, 5vw, 40px);
     position: relative;
-    bottom: 7rem;
+
   }
   
   .banner .dot {
@@ -67,7 +67,6 @@
   }
 }
 
-/* For very small screens */
 @media (max-width: 375px) {
   .banner {
     height: 30px;

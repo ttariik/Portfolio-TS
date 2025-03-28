@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
     AOS.init({
       offset: 100,
       easing: 'linear',
-      duration: 1000,
+      duration: 500,
       once: true,
       mirror: false,
       debounceDelay: 150,

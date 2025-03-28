@@ -123,11 +123,9 @@
           </svg>
         </label>
 
-        <label for="contactPrivacyPolicy">
+        <label id="contactPrivacyPolicy">
           {{ "contactMe.form.extra.privacy" | translate }}
-          <a class="fira-code policy-link" href="privacyPolicy"
-            >privacy policy</a
-          >
+          <a class="fira-code policy-link" [routerLink]="'/privacyPolicy'">privacy policy</a>
           {{ "contactMe.form.extra.policy" | translate }}
         </label>
       </div>

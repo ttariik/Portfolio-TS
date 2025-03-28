@@ -192,6 +192,7 @@ h3 {
   box-shadow: 0px 0.625rem 0.9375rem rgba(0, 0, 0, 0.3);
 }
 
+
 .technologies > app-svg-icon:hover::before {
   content: attr(tooltip);
   position: absolute;
@@ -450,6 +451,14 @@ h3 {
   }
   .technologies {
     width: 100%;
-    max-width: 450px;
+  }
+}
+
+
+
+@media (min-width: 320px) and (max-width: 350px) {
+  .technologies > app-svg-icon{
+    width: 100%;
+    max-width: 50px;
   }
 }

@@ -33,6 +33,9 @@
   }
 }
 
+.logo{
+  cursor: pointer;
+}
 
 .header-full {
   width: 100%;
@@ -142,42 +145,55 @@
   display: none;
 }
 
+
+@function rem($px) {
+  @return ($px / 16)*1rem;
+}
+
+$toggle-width: clamp(4.2rem, rem(84), 6.3rem);
+$toggle-height: clamp(1.4rem, rem(28), 2.1rem);
+$toggle-padding: clamp(0.1rem, rem(2), 0.15rem);
+$toggle-radius: clamp(3rem, rem(60), 4.5rem);
+$toggle-inner-radius: clamp(2.6rem, rem(52), 3.9rem);
+$toggle-thumb-width: clamp(2.1rem, rem(42), 3.15rem);
+$border-offset: clamp(0.15rem, rem(3), 0.225rem);
+$thumb-offset: clamp(0.2rem, rem(4), 0.3rem);
+$thumb-move: clamp(1.9rem, rem(38), 2.85rem);
+
+$primary-color: rgba(61, 207, 182, 1);
+$active-text: rgba(255, 255, 255, 1);
+$inactive-text: rgba(61, 207, 182, 0.5);
+$glow-color: rgba(61, 207, 182, 0.6);
+$font-size: clamp(0.8rem, rem(16), 1.2rem);
+$text-shadow-color: rgba(0, 0, 0, 0.06);
+
 .switch {
   position: relative;
   display: inline-block;
-  margin: 0 clamp(0.2rem, 1vw, 0.3125rem);
-}
+  margin: 0 5px;
 
-.switch > span {
-  position: absolute;
-  top: clamp(0.25rem, 1vw, 0.375rem);
-  pointer-events: none;
-  font-weight: 700;
-  font-size: clamp(0.75rem, 1vw, 1rem);
-  text-transform: uppercase;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
-  width: 50%;
-  text-align: center;
-}
+  > span {
+    position: absolute;
+    top: 6px;
+    pointer-events: none;
+    font-weight: 700;
+    font-size: $font-size;
+    text-transform: uppercase;
+    text-shadow: 0 1px 0 $text-shadow-color;
+    width: 50%;
+    text-align: center;
 
-input.check-toggle-round-flat:checked ~ .off {
-  color: rgba(255, 255, 255, 1);
-}
-
-input.check-toggle-round-flat:checked ~ .on {
-  color: rgba(61, 207, 182, 0.5);
-}
-
-.switch > span.on {
-  left: 0;
-  padding-left: clamp(0.125rem, 0.5vw, 0.125rem);
-  color: rgba(255, 255, 255, 1);
-}
-
-.switch > span.off {
-  right: 0;
-  padding-right: clamp(0.25rem, 0.5vw, 0.25rem);
-  color: rgba(61, 207, 182, 0.5);
+    &.on {
+      left: 0;
+      padding-left: 2px;
+      color: $active-text;
+    }
+    &.off {
+      right: 0;
+      padding-right: 4px;
+      color: $inactive-text;
+    }
+  }
 }
 
 .check-toggle {
@@ -192,44 +208,66 @@ input.check-toggle-round-flat:checked ~ .on {
   cursor: pointer;
   outline: none;
   user-select: none;
+  overflow: hidden;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+
+  &:before {
+    display: block;
+    position: absolute;
+    content: "";
+    top: $border-offset;
+    left: $border-offset;
+    bottom: $border-offset;
+    right: $border-offset;
+    border: 1px solid $primary-color;
+    border-radius: $toggle-radius;
+    transition: box-shadow 0.3s ease;
+  }
+
+  &:hover {
+    box-shadow: 0 0 10px $glow-color; 
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
 }
 
-input.check-toggle-round-flat + label {
-  padding: clamp(0.125rem, 0.5vw, 0.125rem);
-  width: clamp(4rem, 8vw, 5.25rem);
-  height: clamp(1.5rem, 3vw, 1.75rem);
-  border-radius: 60px;
+input.check-toggle-round-flat {
+  & + label {
+    padding: $toggle-padding;
+    width: $toggle-width;
+    height: $toggle-height;
+    border-radius: $toggle-radius;
+
+    &:after {
+      display: block;
+      position: absolute;
+      content: "";
+      top: $thumb-offset;
+      left: $thumb-offset;
+      bottom: $thumb-offset;
+      width: $toggle-thumb-width;
+      background-color: $primary-color;
+      border-radius: $toggle-inner-radius;
+      transition: margin 0.2s;
+    }
+  }
+
+  &:checked + label:after {
+    margin-left: $thumb-move;
+  }
+
+  &:checked ~ .off {
+    color: $active-text;
+  }
+
+  &:checked ~ .on {
+    color: $inactive-text;
+  }
 }
 
-input.check-toggle-round-flat + label:before,
-input.check-toggle-round-flat + label:after {
-  display: block;
-  position: absolute;
-  content: "";
-}
 
-input.check-toggle-round-flat + label:before {
-  top: clamp(0.1875rem, 0.5vw, 0.1875rem);
-  left: clamp(0.1875rem, 0.5vw, 0.1875rem);
-  bottom: clamp(0.1875rem, 0.5vw, 0.1875rem);
-  right: clamp(0.1875rem, 0.5vw, 0.1875rem);
-  border: 1px solid rgba(61, 207, 182, 1);
-  border-radius: 60px;
-}
-
-input.check-toggle-round-flat + label:after {
-  top: clamp(0.25rem, 0.5vw, 0.25rem);
-  left: clamp(0.25rem, 0.5vw, 0.25rem);
-  bottom: clamp(0.25rem, 0.5vw, 0.25rem);
-  width: clamp(2.5rem, 5vw, 2.625rem);
-  background-color: rgba(61, 207, 182, 1);
-  border-radius: 52px;
-  transition: margin 0.2s;
-}
-
-input.check-toggle-round-flat:checked + label:after {
-  margin-left: clamp(2rem, 4vw, 2.375rem);
-}
 
 @media (max-width: 600px) {
   .left-side-header {

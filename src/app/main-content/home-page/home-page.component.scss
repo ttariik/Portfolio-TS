@@ -203,8 +203,8 @@ h2 {
 
     &.github {
       > .social-icon:nth-child(1) {
-height: 30px;
-width: 30px;
+      height: 30px;
+      width: 30px;
         background-image: url(../../../assets/img/github.svg);
         background-position: center;
         background-size: cover;
@@ -235,8 +235,8 @@ width: 30px;
 
     &.linkedin {
       > .social-icon:nth-child(1) {
-  height: 30px;
-  width: 30px;
+        height: 30px;
+        width: 30px;
         background-image: url(../../../assets/img/linkedIn.svg);
         background-position: center;
         background-size: cover;
@@ -344,7 +344,6 @@ width: 30px;
     .email-link {
       rotate: -90deg;
       position: relative;
-      right: 4px;
       margin-bottom: clamp(1.5rem, 3vh, 3rem);
     }
     
@@ -382,5 +381,43 @@ width: 30px;
   .side-panel {
     width: 95%;
     padding: 0 0.5rem;
+  }
+}
+@media (min-width: 320px) and (max-width: 400px) {
+  
+  .header-content {
+    position: relative;
+    right: 1rem;
+  }
+  
+
+}
+
+
+
+@media(min-width:320px) and (max-width:900px){
+
+
+  .side-right{
+    .social-link{
+
+      &.github{
+        > .social-icon:nth-child(1) {
+          position: relative;
+          left: 4px;
+        }
+      }
+      
+    &.linkedin{
+      > .social-icon:nth-child(1) {
+        position: relative;
+        left: 4px;
+      }
+
+    
+ 
+    }
+  }
+
   }
 }

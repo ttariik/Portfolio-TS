@@ -2,6 +2,7 @@ import { Component, HostListener, ElementRef } from '@angular/core';
 import { TranslationService } from '../services/translation.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { SvgIconComponent } from '../svg-icon/svg-icon.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +16,11 @@ export class HeaderComponent {
   isChecked = false;
   isMenuOpen = false;
 
-  constructor(private translationService: TranslationService, private eRef: ElementRef) {
+  constructor(
+    private translationService: TranslationService,
+    private eRef: ElementRef,
+    private router: Router
+  ) {
     this.currentLanguage = this.translationService.currentLanguage;
     this.isChecked = this.currentLanguage === 'de';
   }
@@ -39,11 +44,12 @@ export class HeaderComponent {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      this.router.navigate(['/'], { fragment: sectionId });
     }
     this.isMenuOpen = false;
   }
   
-
   @HostListener('document:click', ['$event'])
   clickOutside(event: Event): void {
     if (this.isMenuOpen && !this.eRef.nativeElement.contains(event.target)) {

@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
-
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 import { RouterModule } from '@angular/router';
 import { TranslationService } from '../services/translation.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-imprint',
   standalone: true,
-  imports: [CommonModule, RouterModule
+  imports: [CommonModule, RouterModule, HeaderComponent
   ],
   templateUrl: './imprint.component.html',
   styleUrl: './imprint.component.scss'

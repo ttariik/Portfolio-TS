@@ -1,6 +1,4 @@
-<!-- Vollflächiger Header-Hintergrund -->
 <div class="header-full">
-  <!-- Begrenzter Inhalt -->
   <div class="header-content" data-aos="fade-down" data-aos-easing="ease-in-out">
     <div class="burger-menu">
       <button (click)="toggleMenu()" class="burger-toggle" aria-label="Toggle menu">
@@ -21,7 +19,6 @@
         <span class="on fira-code" data-aos="fade-in" data-aos-delay="500">EN</span>
         <span class="off fira-code" data-aos="fade-in" data-aos-delay="600">DE</span>
       </div>
-
       <a class="fira-code" (click)="scrollTo('aboutSection')" data-aos="slide-right" data-aos-delay="400">
         {{ 'mainHeader.aboutMe' | translate }}<div></div>
       </a>
@@ -41,7 +38,6 @@
   </div>
 </div>
 
-<!-- Mobile Menu bleibt unverändert -->
 <div class="mobile-menu" [class.active]="isMenuOpen" (click)="onMenuClick($event)">
   <div class="menu-content">
     <a class="fira-code" (click)="scrollTo('aboutSection')">{{ 'mainHeader.aboutMe' | translate }}</a>
